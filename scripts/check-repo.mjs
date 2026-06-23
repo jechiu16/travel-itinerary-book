@@ -4,6 +4,7 @@ import path from "node:path";
 const root = process.cwd();
 const requiredFiles = [
   "SKILL.md",
+  ".claude-plugin/plugin.json",
   "research-and-factcheck.md",
   "template.html",
   "README.md",
@@ -47,6 +48,21 @@ function checkPackage() {
   const scripts = pkg.scripts || {};
   for (const name of ["check", "build:print", "sample:print"]) {
     if (!scripts[name]) fail(`package.json missing npm script: ${name}`);
+  }
+}
+
+function checkPlugin() {
+  let manifest;
+  try {
+    manifest = JSON.parse(read(".claude-plugin/plugin.json"));
+  } catch (error) {
+    fail(`.claude-plugin/plugin.json is not valid JSON: ${error.message}`);
+    return;
+  }
+  if (!manifest.name) fail(".claude-plugin/plugin.json missing name.");
+  if (!manifest.version) fail(".claude-plugin/plugin.json missing version.");
+  if (manifest.name && manifest.name !== "travel-itinerary-book") {
+    fail(".claude-plugin/plugin.json name must be travel-itinerary-book.");
   }
 }
 
@@ -105,6 +121,24 @@ function checkSkill() {
 
   if (!skill.includes("Never invent")) {
     fail("SKILL.md should explicitly forbid invented bookings.");
+  }
+
+  if (!/^##\s+guardrails/im.test(skill)) {
+    fail("SKILL.md should contain a ## Guardrails section.");
+  }
+}
+
+function checkResearch() {
+  const research = read("research-and-factcheck.md");
+  const lower = research.toLowerCase();
+  if (!lower.includes("untrusted")) {
+    fail("research-and-factcheck.md should mark fetched content as untrusted.");
+  }
+  if (
+    !lower.includes("data, not instructions") &&
+    !lower.includes("data not instructions")
+  ) {
+    fail("research-and-factcheck.md should state fetched content is data, not instructions.");
   }
 }
 
@@ -179,7 +213,9 @@ checkRequiredFiles();
 
 if (failures.length === 0) {
   checkPackage();
+  checkPlugin();
   checkSkill();
+  checkResearch();
   checkReadme();
   checkHtmlFile("template.html");
   checkHtmlFile("sample/hokkaido-7day-sample.html");

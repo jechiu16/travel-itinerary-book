@@ -50,6 +50,8 @@ git clone https://github.com/jechiu16/travel-itinerary-book.git \
   ~/.claude/skills/travel-itinerary-book
 ```
 
+repo 內含 `.claude-plugin/plugin.json`，所以 clone 進技能目錄後會被當 `@skills-dir` plugin 載入；同時也具備上架 marketplace、用 `/plugin install` 版本化安裝的條件。
+
 然後在任何 Claude Code 對話中輸入：
 
 ```
@@ -67,6 +69,7 @@ git clone https://github.com/jechiu16/travel-itinerary-book.git \
 | [`template.html`](template.html) | 單檔 HTML 模板 + 示範日；提供時間軸、摺疊區、住宿卡、採買區 |
 | [`sample/`](sample/) | 已渲染的去識別化範例輸出 + 預覽圖 |
 | [`scripts/`](scripts/) | repo 檢查與 print-copy 生成腳本 |
+| [`.claude-plugin/plugin.json`](.claude-plugin/plugin.json) | plugin 中繼資料；讓 repo 能被當 Claude plugin 版本化安裝 |
 
 ## 🛠️ 開發與驗證
 
