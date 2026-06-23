@@ -61,6 +61,10 @@ repo 內含 `.claude-plugin/plugin.json`，所以 clone 進技能目錄後會被
 
 …或直接說「幫我規劃 5 天京都行，我喜歡歷史和日本酒」／「把這些行程檔案整合起來，確認最新資訊」。
 
+## 🌐 在其他 LLM 上使用（ChatGPT／Gemini…）
+
+不用 Claude Code 也能跑：把 [`PROMPT.md`](PROMPT.md) 裡的指令區塊貼進任何能上網搜尋的 LLM，再貼上 `template.html`（給它版型），然後寫上你的行程即可。會失去自動觸發、平行查證子代理、與一鍵 PDF；但保留整套方法——查證、護欄、主動發現、語氣、版型。品質與安全性與模型強弱綁定。
+
 ## 🧱 檔案說明
 
 | 檔案 | 用途 |
@@ -68,6 +72,7 @@ repo 內含 `.claude-plugin/plugin.json`，所以 clone 進技能目錄後會被
 | [`SKILL.md`](SKILL.md) | 技能主體 — 規劃循環、模式判斷、輸出結構、查證原則 |
 | [`research-and-factcheck.md`](research-and-factcheck.md) | 研究回報格式；查證欄位、季節/週幾風險、訂位優先順序 |
 | [`template.html`](template.html) | 單檔 HTML 模板 + 示範日；提供時間軸、摺疊區、住宿卡、採買區 |
+| [`PROMPT.md`](PROMPT.md) | harness 無關的可攜指令；貼進任何瀏覽型 LLM 即可跑 |
 | [`sample/`](sample/) | 已渲染的去識別化範例輸出 + 預覽圖 |
 | [`scripts/`](scripts/) | repo 檢查與 print-copy 生成腳本 |
 | [`.claude-plugin/plugin.json`](.claude-plugin/plugin.json) | plugin 中繼資料；讓 repo 能被當 Claude plugin 版本化安裝 |

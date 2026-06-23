@@ -7,6 +7,7 @@ const requiredFiles = [
   ".claude-plugin/plugin.json",
   "research-and-factcheck.md",
   "template.html",
+  "PROMPT.md",
   "README.md",
   "sample/hokkaido-7day-sample.html",
   "sample/preview.png",
