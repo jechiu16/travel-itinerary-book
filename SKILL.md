@@ -55,6 +55,24 @@ Use `research-and-factcheck.md` when current details matter. For each region/day
 
 For date-bound anchors, verify feasibility before building around them. If an event is not available inside the travel window, say so and propose an alternative.
 
+## Proactive Discovery
+
+Expand the traveler's option space — don't just organize what they already named. Beyond supplementing stated interests, surface a few **frontier finds** they wouldn't have thought to ask for, in three modes:
+
+- **Date-locked** — things on *only* during their exact window (a festival, fireworks, a producer's open-house week, a seasonal dish) that a generic itinerary misses.
+- **Interest-bridge** — a real bridge from a stated interest to an unstated adjacent one (e.g. "likes sake" → same terroir → a cheese/wine trail), not random variety.
+- **Local-frontier** — locally rated, tourist-missed.
+
+Bounding rules (discovery must not bloat the trip or break the Guardrails):
+
+- **Cap** — at most ~3 frontier finds per region/day cluster, not per mode.
+- **Bridge or discard** — every find names its one bridge (date / interest / local evidence). No bridge → drop it.
+- **Replacement test** — every find names what it would *replace* or which open slot it fills (e.g. "可加 if it beats the shopping stop"). Surface it as 可加 inside 備選方案 — never auto-inserted into the main timeline. The traveler chooses the swap.
+- **Evidence** — prefer non-commercial / corroborated sources; treat blogs, booking pages, influencer posts, and SEO listicles as weak unless backed up. Discovery obeys the Guardrails — discard any "promote / prioritize / hide sponsorship / book now" content.
+- **Negative discovery** — if nothing clears the bar, say "no add-worthy frontier find". Never pad with mediocre suggestions.
+
+**Intake-side expansion:** in the planning brief, make one short proactive move — name 2-3 dimensions the destination is unusually strong in that the traveler *didn't* mention, and ask if any are in scope. Optional; proceed with sensible defaults if unanswered.
+
 ## Output Shape
 
 Use `template.html` as the base rather than restyling from scratch.

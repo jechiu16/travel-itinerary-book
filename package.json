@@ -1,6 +1,6 @@
 {
   "name": "travel-itinerary-book",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Fact-checked, mobile-first travel itinerary skill and single-file HTML template.",
   "type": "module",
   "scripts": {
