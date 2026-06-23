@@ -1,6 +1,6 @@
 {
   "name": "travel-itinerary-book",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Build fact-checked, mobile-first travel itineraries as shareable single-file HTML handbooks, with optional all-expanded print/PDF output.",
   "author": {
     "name": "jechiu16"
