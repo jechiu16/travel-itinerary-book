@@ -2,7 +2,8 @@
 <!--
   ============================================================================
   TRAVEL ITINERARY BOOK — reusable template
-  Fill the slots; do not restyle from scratch.
+  Use this as a stable structure, not a cage. Keep the main route clear and
+  adapt density, tone, and folded depth to the traveler.
 
   Structure:  cover → nav → intro-card → [day sections] → buying → checklist → footer
   Per day:    day-head → 任務/交通 lines + verdict → 主動線 timeline (always visible)
@@ -10,10 +11,10 @@
 
   Conventions demonstrated below (search for "EXAMPLE"):
     - timeline event with inline verified hours/price + gov official-site link
-    - c-book / c-tip callouts (NO correction boxes — see SKILL voice rules)
-    - 📖 history fold with NESTED 深入 folds (up to 3 levels deep)
-    - A/B "二選一" selector kept INSIDE a second-layer fold on one timeline event
-    - honest pills: 必留 / 條件保留 / 可加 / 可砍
+    - c-book / c-tip callouts for forward-looking action
+    - 📖 history fold with optional deeper folds when the story earns it
+    - alternatives folded under one timeline decision, so the route stays honest
+    - priority pills such as 必留 / 條件保留 / 可加 / 可砍
   Place links use Google Maps search:
     https://www.google.com/maps/search/?api=1&query=<URL-encoded name>
   ============================================================================
@@ -143,7 +144,7 @@ summary .chev{margin-left:auto;color:var(--gold);font-size:.8rem;transition:tran
 details[open] summary .chev{transform:rotate(90deg)}
 .det-body{padding:4px 13px 13px;border-top:1px dashed var(--border)}
 
-/* 內層摺頁（第二、三層） */
+/* 內層摺頁 */
 .fold{margin-top:7px;background:var(--paper-2);border:1px solid var(--border);border-radius:7px}
 .fold summary{padding:7px 10px;font-size:.8rem;color:var(--pine)}
 .fold .det-body{padding:9px 11px;font-size:.83rem;color:var(--ink-soft);line-height:1.7}
@@ -209,11 +210,11 @@ details[open] summary .chev{transform:rotate(90deg)}
     <h1 class="cover-title">（行程標題）</h1>
     <p class="cover-sub">（城市・城市・城市）</p>
     <p class="cover-meta">（日期區間）｜（進出方式）<br>（交通方式・特殊時段註記）</p>
-    <!-- chips = 旅人的興趣標籤，驅動全程「要不要加」的判斷 -->
+    <!-- chips = 旅人的興趣標籤，幫助後續取捨 -->
     <div class="cover-chips"><span>歷史</span><span>酒</span><span>美術</span><span>農特產品</span><span>在地食物</span></div>
   </header>
 
-  <!-- ===== 導覽（一二三…，純數字，不用壹貳參） ===== -->
+  <!-- ===== 導覽 ===== -->
   <nav class="nav">
     <a href="#day1"><span class="kanji">一</span><small>（城市）</small></a>
     <a href="#day2"><span class="kanji">二</span><small>（城市）</small></a>
@@ -225,7 +226,7 @@ details[open] summary .chev{transform:rotate(90deg)}
   <!-- ===== 說明 ===== -->
   <section class="intro-card">
     <h2>關於這份行程</h2>
-    <p>（骨架已確定的部分）。主動線常駐顯示，餐點、採買、備選收進折疊，手機好讀。所有時間與票價已於（查證月份）查證。</p>
+    <p>（發散後已確認的行程骨架）。主動線常駐顯示，餐點、採買、備選收進折疊，手機好讀。所有時間與票價已於（查證月份）查證。</p>
     <div class="legend">
       <span><i class="pill p-must">必留</i>符合偏好的核心</span>
       <span><i class="pill p-cond">條件保留</i>看天氣人潮</span>
@@ -266,7 +267,7 @@ details[open] summary .chev{transform:rotate(90deg)}
       </div>
     </div>
     <div class="day-body">
-      <p class="line"><b>任務：</b>（今天的重心是什麼、不要做什麼）</p>
+      <p class="line"><b>任務：</b>（今天的重心、取捨與節奏）</p>
       <p class="line"><b>交通：</b>（關鍵交通時間、訂票/租車要點）</p>
       <div class="verdict"><b>景點判斷：</b>（哪個必留、哪個可砍、為什麼；含當日週幾的休館提醒）</div>
 
@@ -277,7 +278,7 @@ details[open] summary .chev{transform:rotate(90deg)}
         <div class="event">
           <div class="event-time">14:40</div>
           <div class="event-title"><a href="https://www.google.com/maps/search/?api=1&query=%E5%9C%B0%E9%BB%9E%E5%90%8D%E7%A8%B1">（地點名）</a> <span class="pill p-must">必留</span></div>
-          <div class="event-desc">本日核心。（一句重點）。（營業 9:30–17:00、末入 16:30、公休每月第 4 個週三、票價 ¥XXX——查證後直接寫正確值，不要寫「原本寫錯」）。<span class="gov">官網 <a href="https://example.com/">example.com</a></span></div>
+          <div class="event-desc">本日核心。（一句重點）。（營業 9:30–17:00、末入 16:30、公休每月第 4 個週三、票價 ¥XXX——查證後直接寫目前可信值）。<span class="gov">官網 <a href="https://example.com/">example.com</a></span></div>
         </div>
 
         <!-- EXAMPLE: 次要事件（minor → 灰點），短停 -->
@@ -287,11 +288,11 @@ details[open] summary .chev{transform:rotate(90deg)}
           <div class="event-desc">（散步拍照即可、10–20 分、串接動線怎麼走最順）。</div>
         </div>
 
-        <!-- EXAMPLE: A/B「二選一」——放進第二層 fold，不要並排兩個 event（會誤導成兩個都做） -->
+        <!-- EXAMPLE: 二選一／多選一決策。主線只放決策點，選項收進 fold。 -->
         <div class="event">
           <div class="event-time">09:30</div>
           <div class="event-title">上午行程（二選一，見下方）</div>
-          <div class="event-desc">看天氣/體力選一個，不要兩個都排。</div>
+          <div class="event-desc">看天氣/體力選一個；主線保持單一路徑。</div>
           <details class="fold">
             <summary>A.（選項一名稱）</summary>
             <div class="det-body">
@@ -314,19 +315,19 @@ details[open] summary .chev{transform:rotate(90deg)}
       <div class="callout c-book"><b>建議先訂：</b>（需要預約的店/票、提前幾天、電話或線上）。</div>
       <div class="callout c-tip"><b>時序提醒：</b>（哪個熱門品/景點要早到、避開什麼時段）。</div>
 
-      <!-- ===== 📖 歷史：必須有料，含巢狀「深入」折疊（最多三層） ===== -->
+      <!-- ===== 📖 歷史：先給能幫助現場觀看的故事，需要時再加深入折疊 ===== -->
       <details>
         <summary>📖 （主題）的歷史<span class="chev">▸</span></summary>
         <div class="det-body">
           <p><b>（前因：為什麼會這樣？）</b></p>
-          <p>（背景脈絡：人事時地物——誰、何時、在哪、做了什麼、結果如何。寫成有因果的故事，不是條列年表。）</p>
+          <p>（背景脈絡：誰、何時、在哪、做了什麼、結果如何。寫成有因果的故事，不是條列年表。）</p>
 
           <!-- 第二層：深入子題 -->
           <details class="fold">
             <summary>深入：（子題一）</summary>
             <div class="det-body">
               <p>（更細的故事或人物，給有興趣的人。）</p>
-              <!-- 第三層（必要時）：再深一階 -->
+              <!-- 必要時再深一階 -->
               <details class="fold">
                 <summary>再深入：（更細的子題）</summary>
                 <div class="det-body"><p>（資料控才會展開的細節。）</p></div>

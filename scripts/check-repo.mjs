@@ -42,6 +42,14 @@ function checkRequiredFiles() {
   }
 }
 
+function checkPackage() {
+  const pkg = JSON.parse(read("package.json"));
+  const scripts = pkg.scripts || {};
+  for (const name of ["check", "build:print", "sample:print"]) {
+    if (!scripts[name]) fail(`package.json missing npm script: ${name}`);
+  }
+}
+
 function checkSkill() {
   const skill = read("SKILL.md");
   const lines = skill.split(/\r?\n/);
@@ -160,10 +168,19 @@ function checkLocalLinks(file) {
   }
 }
 
+function checkReadme() {
+  const readme = read("README.md");
+  for (const term of ["發散", "總結", "確認", "查證糾錯", "npm run check", "npm run sample:print"]) {
+    if (!readme.includes(term)) fail(`README.md missing expected project guidance: ${term}`);
+  }
+}
+
 checkRequiredFiles();
 
 if (failures.length === 0) {
+  checkPackage();
   checkSkill();
+  checkReadme();
   checkHtmlFile("template.html");
   checkHtmlFile("sample/hokkaido-7day-sample.html");
   for (const file of ["README.md", "template.html", "sample/hokkaido-7day-sample.html"]) {
