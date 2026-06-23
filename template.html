@@ -7,12 +7,13 @@
 
   Structure:  cover → nav → intro-card → [day sections] → buying → checklist → footer
   Per day:    day-head → 任務/交通 lines + verdict → 主動線 timeline (always visible)
-              → c-tip / c-book callouts → folds: 📖history 🌾風土 🍴餐 🛍️買 ♺備選
+              → c-tip / c-book callouts → per-point cluster (📖history 🌾風土 🔭lens) → day folds: 🍴餐 🛍️買 ♺備選
 
   Conventions demonstrated below (search for "EXAMPLE"):
     - timeline event with inline verified hours/price + gov official-site link
     - c-book / c-tip callouts for forward-looking action
     - 📖 history fold with optional deeper folds when the story earns it
+    - 🔭 place lenses: 2–3 "way of seeing" sub-headings (insight, not labels) on a major point
     - alternatives folded under one timeline decision, so the route stays honest
     - a frontier find in 備選方案: names its bridge + what it would replace (replacement test)
     - priority pills such as 必留 / 條件保留 / 可加 / 可砍
@@ -71,8 +72,7 @@ body{
 .cover-title{font-family:var(--serif);font-size:2.2rem;font-weight:900;line-height:1.2;letter-spacing:.04em;margin-bottom:10px;}
 .cover-sub{color:var(--gold);font-size:.95rem;letter-spacing:.1em;margin-bottom:16px}
 .cover-meta{font-size:.82rem;color:var(--ink-soft);line-height:1.7}
-.cover-chips{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:14px}
-.cover-chips span{font-size:.78rem;font-weight:700;padding:3px 11px;border:1px solid var(--border);background:#fff;border-radius:2px;color:var(--navy);}
+.lens-h{font-weight:700;color:var(--pine);margin-top:10px;font-size:.9rem}
 
 /* ===== 導覽 ===== */
 .nav{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:26px;}
@@ -211,8 +211,6 @@ details[open] summary .chev{transform:rotate(90deg)}
     <h1 class="cover-title">（行程標題）</h1>
     <p class="cover-sub">（城市・城市・城市）</p>
     <p class="cover-meta">（日期區間）｜（進出方式）<br>（交通方式・特殊時段註記）</p>
-    <!-- chips = 旅人的興趣標籤，幫助後續取捨 -->
-    <div class="cover-chips"><span>歷史</span><span>酒</span><span>美術</span><span>農特產品</span><span>在地食物</span></div>
   </header>
 
   <!-- ===== 導覽 ===== -->
@@ -316,41 +314,41 @@ details[open] summary .chev{transform:rotate(90deg)}
       <div class="callout c-book"><b>建議先訂：</b>（需要預約的店/票、提前幾天、電話或線上）。</div>
       <div class="callout c-tip"><b>時序提醒：</b>（哪個熱門品/景點要早到、避開什麼時段）。</div>
 
-      <!-- ===== 📖 歷史：先給能幫助現場觀看的故事，需要時再加深入折疊 ===== -->
+      <!-- ===== 大點叢集：把 📖 歷史 + 🌾 風土 + 🔭 看法 收進「主錨點」的一個 fold，一次展開、不用多次點擊。次要點不做叢集，只留時間軸。歷史的「深入」才是內層折疊。 ===== -->
       <details>
-        <summary>📖 （主題）的歷史<span class="chev">▸</span></summary>
+        <summary>（主錨點名）：歷史・風土・看法<span class="chev">▸</span></summary>
         <div class="det-body">
+
+          <div class="sub-h">📖 歷史</div>
           <p><b>（前因：為什麼會這樣？）</b></p>
           <p>（背景脈絡：誰、何時、在哪、做了什麼、結果如何。寫成有因果的故事，不是條列年表。）</p>
-
-          <!-- 第二層：深入子題 -->
           <details class="fold">
             <summary>深入：（子題一）</summary>
             <div class="det-body">
               <p>（更細的故事或人物，給有興趣的人。）</p>
-              <!-- 必要時再深一階 -->
               <details class="fold">
                 <summary>再深入：（更細的子題）</summary>
                 <div class="det-body"><p>（資料控才會展開的細節。）</p></div>
               </details>
             </div>
           </details>
-
           <details class="fold">
             <summary>深入：（子題二）</summary>
             <div class="det-body"><p>（另一條故事線。）</p></div>
           </details>
-
           <p style="margin-top:8px"><b>必看：</b>（到現場具體要看哪些東西——建築細節、實物、視角）。</p>
-        </div>
-      </details>
 
-      <!-- ===== 🌾 風土：農產 / 酒 / 料理 與地方的連結 ===== -->
-      <details>
-        <summary>🌾 風土：（地方的酒/農產/料理）<span class="chev">▸</span></summary>
-        <div class="det-body">
+          <div class="sub-h" style="margin-top:12px">🌾 風土</div>
           <p><b>（在地酒）</b>：（水源、氣候、酒造歷史、推薦買什麼、能不能試飲）。</p>
           <p><b>（在地農產/料理）</b>：（產季、為什麼這裡特別好、怎麼吃/帶）。</p>
+
+          <div class="sub-h" style="margin-top:12px">🔭 看法（選 2–3 種，寧缺勿濫）</div>
+          <p class="lens-h">〔地理之眼〕（看法式標題，如「為什麼這裡是天然良港」）</p>
+          <p>（下游句：地理 → 產業 → 飲食，一條因果線；結尾落在現場看得到的東西。）</p>
+          <p class="lens-h">〔產業脈絡〕（如「魚市場之後」）</p>
+          <p>（缺席論證：沒有這個視角，你會把 X 誤讀成 Y，錯過的是 Z。）</p>
+          <!-- 第三個視角：只有同樣強、不重複才加；否則留白（空白比硬湊有品味） -->
+
         </div>
       </details>
 
