@@ -120,7 +120,26 @@ The phone HTML keeps folds collapsed. For PDF, create an all-expanded print copy
 npm run build:print -- sample/hokkaido-7day-sample.html dist/hokkaido-7day-sample.print.html
 ```
 
-Then print the generated file with a browser or headless Chrome. Regenerate the print copy after edits.
+`build:print` forces every `<details>` open and injects print CSS — each day starts on a fresh page, small blocks stay intact, headings don't strand. Then render with headless Chrome (serve the file first so web fonts load):
+
+```bash
+chrome --headless=new --no-pdf-header-footer \
+  --print-to-pdf="out.pdf" --virtual-time-budget=15000 \
+  "http://localhost:PORT/out.print.html"
+```
+
+Chrome preserves every `<a href>` as a clickable link annotation (Google Maps, official sites). The in-page `#` nav is hidden in print and is not turned into internal links — add a bookmark outline instead.
+
+**Optional — bookmark outline** so readers can jump to each day from the PDF sidebar. Add one entry per day + key sections after rendering, e.g. with PyMuPDF (a full save keeps the link annotations):
+
+```python
+import fitz
+doc = fitz.open("out.pdf")
+doc.set_toc([[1, "Day 1 …", 3], [1, "Day 2 …", 7]])  # [level, title, 1-indexed page]
+doc.save("out.bookmarked.pdf")
+```
+
+The PDF is a snapshot — regenerate after edits.
 
 ## Delivery Gate
 
