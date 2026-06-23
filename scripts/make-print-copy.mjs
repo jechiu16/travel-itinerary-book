@@ -34,15 +34,40 @@ const printCss = `
     max-width: none;
     padding: 0;
   }
+  /* Each day section starts on a fresh page */
+  .day {
+    break-before: page;
+    page-break-before: always;
+  }
+  /* Keep small blocks from splitting across a page boundary */
   .intro-card,
-  .day,
   .event,
-  details,
+  .callout,
+  .alt-item,
+  .food-item,
+  .buy-item,
+  tr,
   .rule,
-  .cat,
-  table {
+  .cat {
     break-inside: avoid;
     page-break-inside: avoid;
+  }
+  /* Tall tables / folds may flow across pages; their rows stay intact */
+  table {
+    break-inside: auto;
+  }
+  /* Don't strand a heading at the bottom of a page */
+  .day-head,
+  .block-label,
+  summary,
+  h2,
+  h3 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+  p {
+    orphans: 3;
+    widows: 3;
   }
   details {
     background: #fff;
