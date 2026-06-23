@@ -2,6 +2,15 @@
 
 Phase 1 detail for `travel-itinerary-book`. Goal: every fact in the final file is current and verified; new highlights match the traveler's stated interests.
 
+## Research loop
+
+Each researcher should do four passes:
+
+1. **Diverge:** collect viable venues, food, transport, and alternatives that fit the region and traveler interests.
+2. **Summarize:** name the strongest choices and the obvious cuts.
+3. **Verify:** check official or high-quality sources for current facts and date-specific feasibility.
+4. **Flag corrections:** report anything that changes the route, timing, booking priority, or traveler expectations.
+
 ## Dispatch pattern
 
 One subagent per **geographic cluster** (usually 1–2 days that share a region), dispatched in a single message so they run concurrently. Give each agent:
@@ -39,6 +48,8 @@ New candidates that fit the traveler's stated interests, with the same verified 
 - <venue> [interest]: why it fits, hours/price, source
 ### Day-of-week / seasonal flags
 - <date> is <weekday> → <what's closed or unavailable>
+### Route / booking risks
+- <risk>: <why it matters and what to do if it fails>
 ```
 
 ## Integrating results (assembler's job)

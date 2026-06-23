@@ -1,113 +1,101 @@
 ---
 name: travel-itinerary-book
-description: Use when building a travel itinerary, trip plan, or multi-day destination guide as a shareable single-file HTML document — whether the user has confirmed bookings, only rough notes, or nothing booked yet and wants help planning. Covers verifying current info (hours, prices, seasonal availability, closures), proposing a route skeleton, a prioritized booking/待訂 checklist, mobile-first collapsible presentation, and PDF export. Triggers include 行程/旅遊手冊/itinerary, combining draft itineraries, "plan a trip to X", or "find the latest info and make it nice".
+description: Build fact-checked, mobile-first travel itineraries and multi-day destination guides as shareable single-file HTML handbooks, with optional all-expanded print/PDF output. Use when the user gives trip notes, asks to combine draft itineraries, wants a route proposed from scratch, needs current hours/prices/closures verified, or asks for 行程, 旅遊手冊, itinerary, trip plan, booking checklist, or "find the latest info and make it nice".
 ---
 
 # Travel Itinerary Book
 
-## Overview
+Turn rough trip plans, source files, or a blank planning request into a useful travel handbook: clear route first, deeper context one tap away, current facts checked, and unbooked items never disguised as confirmed.
 
-Turn rough trip plans + source itineraries into a fact-checked, mobile-first travel handbook delivered as **one self-contained HTML file** (embedded CSS, Google Fonts, no JS dependencies).
+Use Traditional Chinese by default unless the user asks otherwise.
 
-**Core principle:** the main route is always visible; everything else is one tap away. Verified facts live inline in the timeline; depth (history, food, alternatives) lives in folds.
+## Core Loop
 
-## When to Use
+Work in visible loops. Do not jump straight from notes to final HTML.
 
-- User gives you existing itinerary file(s) or notes and wants them combined / upgraded
-- Wants the latest info verified online (hours, prices, closures, relocations, seasonal flowers/menus)
-- Output must read well on a phone
-- Trip spans multiple days / cities
+1. **Intake** - Read all user-provided files/notes. Separate confirmed facts from assumptions: dates, flights, hotels, event tickets, transport, must-dos, interests, constraints, and unknowns.
+2. **Diverge** - When the route is not fixed, create 2-4 plausible route/tempo options. Include tradeoffs, not just recommendations: transit burden, hotel moves, seasonal risk, booking risk, and fit with stated interests.
+3. **Summarize** - Compress the current understanding into a short planning brief: confirmed items, proposed skeleton, open choices, and your recommended path.
+4. **Confirm** - Ask before locking structural choices: route shape, overnight cities, drive vs train, must-keep events, and any major booking-dependent assumption. For small style/content choices, make a sensible call and keep moving.
+5. **Research & correct** - Verify current facts, then write the corrected value directly into the itinerary. If verification changes the plan, update the brief and re-confirm only when the change affects route, cost, or feasibility.
+6. **Assemble** - Fill `template.html`; keep the main timeline always visible and move depth into collapsible sections.
+7. **Review** - Before delivery, perform a self-check: route feasibility, day-of-week closures, booking labels, link quality, mobile readability, and whether anything unverified is clearly marked.
 
-**Not for:** live booking or money movement, single-day quick lists, non-travel documents.
+Repeat steps 2-5 whenever new information changes the plan.
 
-## Two Modes (set this first)
+## Modes
 
-The same output adapts to how much is locked in:
+- **Confirmed trip:** preserve booked flights, hotels, tickets, and fixed nights. Verify surrounding logistics and present bookings clearly.
+- **Planning trip:** propose a route skeleton and include a prioritized 待訂 checklist. Mark every unbooked flight, hotel, ticket, rental car, train, and restaurant as 待訂.
+- **Mixed trip:** handle each item independently. Confirmed items are shown as booked; proposed items stay labelled 待訂.
 
-- **Mode A — confirmed:** flights, hotels, overnight cities, tickets already booked. The job is to verify + present them well. Logistics card shows the actual bookings.
-- **Mode B — planning / nothing booked yet:** you also **propose the route skeleton** and produce a **待訂 (to-book) checklist**. Nothing is presented as confirmed — every unbooked item is labelled 待訂 with how/where/when to book.
+Never invent a specific hotel, flight, ticket, or reservation the user has not chosen.
 
-Most trips are partial (e.g. flights booked, hotels not). Treat each element independently: confirmed → present it; unbooked → propose candidates + booking link + 待訂. **Never fabricate a specific hotel/flight/ticket the user hasn't chosen.**
+## Research
 
-## Workflow
+Use `research-and-factcheck.md` when current details matter. For each region/day cluster, verify:
 
-### Phase 0 — Understand & confirm
-1. Read **every** source file fully (if any). Extract two things:
-   - **Skeleton — given or to-propose:** in/out cities, self-drive days, overnights, hotel nights, flight numbers & times, festival/peak constraints (e.g. Obon). In **Mode B**, much of this is missing → *propose* a skeleton from the dates + interests + any hard constraints, with brief reasoning. Don't silently invent it; surface it as a proposal.
-   - **Traveler's stated interests** — these drive every "should I add this?" call (e.g. history / sake / art / agricultural products / local food).
-2. Confirm with **AskUserQuestion** before building:
-   - **Mode B first:** confirm the proposed skeleton (route shape, which nights where, drive vs train) — this is the one decision you must not guess.
-   - Visual style (recommend clean + modern info cards, no heavy theme).
-   - Mobile density — recommend **main timeline always visible, the rest collapsible**.
-   - Research depth — recommend **actively supplement + add official site / booking info**.
+- hours, closed days, prices, reservation rules, temporary closures, relocation, and official URLs
+- day-of-week conflicts with the actual travel date
+- seasonal availability for flowers, fruit, menus, festivals, fireworks, games, and transport
+- transport feasibility, including reserved-seat rules, ticket release timing, last trains, last buses, and drive times
 
-### Phase 1 — Research & fact-check
-**REQUIRED SUB-SKILL:** use superpowers:dispatching-parallel-agents. Dispatch one subagent per geographic area / cluster of days, in a single message so they run concurrently. See `research-and-factcheck.md` for exactly what each agent must verify and return.
+For date-bound anchors, verify feasibility before building around them. If an event is not available inside the travel window, say so and propose an alternative.
 
-**Time-bound events first:** for anything date-dependent the trip is built around (a ball game, festival, fireworks, seasonal bloom), verify *feasibility* before scheduling it — does a home game / the event actually fall inside the travel window? If not, say so and adjust; don't assume it's on. Also verify the **last train / last shuttle** back for any out-of-town evening activity.
+## Output Shape
 
-Then **correct silently**: once a fact is verified, write the *correct* value straight into the itinerary. Do **not** leave "this used to say X, it's wrong" correction boxes — they add noise. Keep only forward-looking `c-tip` (timing) and `c-book` (reservation) notes the traveler still needs to act on.
+Use `template.html` as the base rather than restyling from scratch.
 
-### Phase 2 — Assemble
-Copy `template.html` and fill it. One `<section class="day">` per day, following the per-day structure below. Then preview on a mobile viewport and read it back before delivering.
+Each day should contain:
 
-## Per-day structure (in order)
+1. day heading: number, theme, date, route
+2. short mission/transport notes and an honest verdict
+3. main timeline with time, map link, concise description, verified facts inline, and official links where useful
+4. only actionable callouts, such as timing or reservation notes
+5. optional folds for history, food, local products, shopping, and alternatives
 
-1. `day-head` — number (一二三…) + theme + date/route line
-2. `任務 / 交通` lines + `景點判斷` verdict box — the honest "what matters today"
-3. **`主動線` timeline** — the spine, ALWAYS visible. Each event: time · place linked to a Google Maps search URL · short desc with **verified hours/price inline** · optional `gov` official-site link
-4. callout boxes — only `c-tip` (timing) / `c-book` (reservations). **No correction boxes.**
-5. Folds (collapsed by default), in this order:
-   - `📖` history — see Voice rules
-   - `🌾` 風土 (terroir) — local produce / sake / cuisine tied to place
-   - `🍴` 餐點候選
-   - `🛍️` 今天適合買
-   - `♺` 備選方案
+Keep alternatives inside folds so the main timeline does not imply the traveler is doing everything.
 
-## Voice rules (hard-won — follow exactly)
+## Voice & Judgment
 
-- **No fake decorative "national-style" text.** Skip 令和/手帖/觀/壹貳參-style ornamentation; it reads noisy and try-hard. Use plain, clear Traditional Chinese and plain numerals 一二三.
-- **History must have substance, not a caption.** Each `📖` fold needs: 前因後果 (cause → effect), 必看點 (what to actually look at on site), a concrete **story**, and 人事時地物 (who / when / where / what). Use **nested folds — up to 3 levels** — for `深入` deep-dives so the surface layer stays light.
-- **風土:** supplement local produce, sake/alcohol, and cuisine; connect food and drink back to the place's geography and history.
-- **A/B alternatives go INSIDE a second-layer fold**, never side-by-side on the main timeline. Two parallel events at the same time slot reads as "doing both" and is misleading. Use one timeline event labelled "二選一", and a fold reveals option A and option B.
-- **Honest pills:** 必留 / 條件保留 / 可加 / 可砍. Tell the traveler what to cut, not just what to add.
+Write plainly and use structure for polish. Avoid decorative faux-local language, over-themed prose, and overly rigid labels when the content does not need them.
 
-## Template
+Prefer:
 
-Use `template.html` — full CSS + a worked skeleton (cover, nav, one complete example day with all conventions including a nested 3-level history fold and an A/B selector, the buying section, pre-trip checklist). Don't restyle from scratch; fill the slots.
+- concrete recommendations over exhaustive lists
+- cause-and-effect stories for history, not captions
+- local food/products tied back to geography, season, or history
+- clear "keep / cut / optional" judgments that protect the traveler's time
+- concise explanations that leave room for the model to adapt to the destination and traveler
 
-## Logistics, booking & PDF
+## Booking Checklist
 
-**航班與住宿 card** — add a summary card right after the intro (and a nav entry). Two small tables: flights (number · date · time · note) and nights (date · hotel · note). **Hotel names are Google Maps links**, exactly like every venue — never plain text.
-- Mode A: show the actual flights/hotels.
-- Mode B: show candidates + booking link, every row tagged 待訂. Don't invent a specific property.
+For planning or partially unbooked trips, end with "book in this order":
 
-**待訂 / booking checklist** — in Mode B (or any partial trip), end with a prioritized "book in this order" list. Order by what sells out / locks first:
-1. Reserved-seat express trains — on ticket-release date (often 1 month prior, 10:00)
-2. Peak-season hotels (Obon/holidays) and self-drive rental cars
-3. Event tickets (games, fireworks seats) when release opens
-4. Popular restaurants needing reservation
+1. reserved-seat trains or transport that controls the route
+2. peak-season hotels and rental cars
+3. event tickets and paid viewpoints/boats/tours
+4. popular restaurants or limited seasonal meals
 
-Each item: where to book, when it opens, whether it sells out. This *is* the deliverable in Mode B.
+Each item should say where to book, when booking opens, sell-out risk, and what changes if it fails.
 
-**PDF export** — the HTML is collapsible for phones, so a PDF printed as-is hides most content. To export:
-1. Build a print copy: force every `<details>` open (add the `open` attribute) and inject a `@media print` block (force `print-color-adjust:exact` for backgrounds, `break-inside:avoid` on small blocks, hide nav/back-to-top).
-2. Render with headless Chrome: `chrome --headless=new --no-pdf-header-footer --print-to-pdf=out.pdf <url>` (serve the file so web fonts load; give it a virtual-time budget).
-3. Keep the collapsible HTML as the phone deliverable; the PDF is the all-expanded artifact. The PDF is a snapshot — regenerate after edits.
+## PDF / Print
 
-## Common Mistakes
+The phone HTML keeps folds collapsed. For PDF, create an all-expanded print copy:
 
-| Mistake | Fix |
-|---------|-----|
-| Decorative wa-style/era wording for "atmosphere" | Plain clear language; let structure carry the polish |
-| Leaving "校正：原本寫錯…" boxes after verifying | Just write the correct fact inline; delete the correction box |
-| History fold = one-line caption | Add 前因後果 + 必看 + story + 人事時地物; nest 深入 folds |
-| A/B options shown as two timeline events | Collapse into one "二選一" event with a second-layer fold |
-| Listing every option as "must-see" | Use 可砍/條件保留 pills; protect the traveler's time |
-| Multi-file output or external JS | One self-contained HTML; embedded CSS only |
-| Dumping research raw | Verify, then integrate; cite official sites via `gov` links |
-| Inventing a hotel/flight/ticket the user hasn't booked | Propose candidates + booking link, tag 待訂; never present as confirmed |
-| Hotel names as plain text | Link to Google Maps like every other venue |
-| Building around an event without checking it's on | Verify the date falls in the window first; check last train back |
-| PDF printed from the collapsible HTML (folds hidden) | Force all `<details open>` + print CSS, then headless-Chrome print-to-pdf |
-| Skipping the phone check | Preview at ~375px and read it back before delivering |
+```bash
+npm run build:print -- sample/hokkaido-7day-sample.html dist/hokkaido-7day-sample.print.html
+```
+
+Then print the generated file with a browser or headless Chrome. Regenerate the print copy after edits.
+
+## Final Self-Check
+
+Before delivering, confirm:
+
+- no unbooked item is presented as confirmed
+- major facts have official or high-quality sources
+- closed days and seasonal windows match the actual dates
+- the main route remains readable on a phone
+- folds contain useful depth rather than filler
+- PDF/print output uses an expanded copy if requested

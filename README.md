@@ -65,6 +65,21 @@ git clone https://github.com/jechiu16/travel-itinerary-book.git \
 | [`research-and-factcheck.md`](research-and-factcheck.md) | 每個研究 agent 必須查證和回傳什麼；訂位優先順序 |
 | [`template.html`](template.html) | 完整 CSS + 示範日（時間軸、三層歷史摺疊、A/B 二選一、住宿卡、採買區） |
 | [`sample/`](sample/) | 已渲染的去識別化範例輸出 + 預覽圖 |
+| [`scripts/`](scripts/) | repo 檢查與 print-copy 生成腳本 |
+
+## 🛠️ 開發與驗證
+
+這個 repo 盡量維持低依賴；Node 腳本只使用標準函式庫。
+
+```bash
+npm run check
+npm run sample:print
+```
+
+- `npm run check`：檢查技能 frontmatter、必要檔案、HTML 基本結構與本地連結。
+- `npm run sample:print`：把範例 HTML 轉成 `dist/` 裡的全展開列印版，方便再用瀏覽器或 headless Chrome 輸出 PDF。
+
+技能流程本身採用「發散 → 總結 → 確認 → 查證糾錯 → 組裝 → 自我檢查」循環；模型可以自由發揮內容，但在路線骨架、未訂項目、時間性活動與事實查證上保留明確護欄。
 
 ## 🎯 這份技能的主張
 
