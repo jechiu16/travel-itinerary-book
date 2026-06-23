@@ -54,7 +54,9 @@ Each day should contain:
 4. only actionable callouts, such as timing or reservation notes
 5. optional folds for history, food, local products, shopping, and alternatives
 
-Keep alternatives inside folds so the main timeline does not imply the traveler is doing everything.
+**History folds** must contain substance, not captions: 前因後果 (cause → effect), 必看點 (what to actually look at on site), a concrete story, and 人事時地物 (who / when / where / what). Use nested folds up to 3 levels for deep-dives — keep the surface layer light.
+
+**A/B alternatives** go inside a second-layer fold under one timeline event labelled "二選一". Never show two parallel events at the same time slot — that reads as "do both".
 
 ## Voice & Judgment
 
