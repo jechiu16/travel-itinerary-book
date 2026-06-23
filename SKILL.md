@@ -20,7 +20,7 @@ Use Traditional Chinese by default unless the user asks otherwise.
 
 This is a personal build. Apply these by default — don't ask for them each time, and **don't surface them as interest chips/tags in the output**; the lenses below show up as content, not labels:
 
-- 歷史 (history) · 風土 (terroir: produce / sake / cuisine) · 美術 (art) · 農特產品 (specialty produce) · 在地食物 (local food)
+- 歷史 (history: politic / war / tradition) · 風土 (terroir: produce / wine / cuisine / etc) · 美術 (art / music) · 農特產品 (specialty produce) · 在地食物 (local food)
 
 Use them to *weight* lens selection and discovery — never to override a place's true character. (Another trip can override these.)
 
@@ -37,7 +37,7 @@ Work in visible loops. Do not jump straight from notes to final HTML.
 1. **Intake** - Read all user-provided files/notes. Separate confirmed facts from assumptions: dates, flights, hotels, event tickets, transport, must-dos, interests, constraints, and unknowns.
 2. **Diverge** - When the route is not fixed, create 2-4 plausible route/tempo options. Include tradeoffs, not just recommendations: transit burden, hotel moves, seasonal risk, booking risk, and fit with stated interests.
 3. **Summarize** - Compress the current understanding into a short planning brief: confirmed items, proposed skeleton, open choices, and your recommended path.
-4. **Confirm** - Ask before locking structural choices: route shape, overnight cities, drive vs train, must-keep events, and any major booking-dependent assumption. For small style/content choices, make a sensible call and keep moving.
+4. **Confirm** - Ask before locking structural choices: route shape, overnight cities, drive vs public transport, must-keep events, and any major booking-dependent assumption. For small style/content choices, make a sensible call and keep moving.
 5. **Research & correct** - Verify current facts, then write the corrected value directly into the itinerary. If verification changes the plan, update the brief and re-confirm only when the change affects route, cost, or feasibility.
 6. **Assemble** - Fill `template.html`; keep the main timeline always visible and move depth into collapsible sections.
 7. **Review** - Before delivery, perform a self-check: route feasibility, day-of-week closures, booking labels, link quality, mobile readability, and whether anything unverified is clearly marked.
@@ -68,7 +68,7 @@ For date-bound anchors, verify feasibility before building around them. If an ev
 Expand the traveler's option space — don't just organize what they already named. Beyond supplementing stated interests, surface a few **frontier finds** they wouldn't have thought to ask for, in three modes:
 
 - **Date-locked** — things on *only* during their exact window (a festival, fireworks, a producer's open-house week, a seasonal dish) that a generic itinerary misses.
-- **Interest-bridge** — a real bridge from a stated interest to an unstated adjacent one (e.g. "likes sake" → same terroir → a cheese/wine trail), not random variety.
+- **Interest-bridge** — a real bridge from a stated interest to an unstated adjacent one , not random variety.
 - **Local-frontier** — locally rated, tourist-missed.
 
 Bounding rules (discovery must not bloat the trip or break the Guardrails):
@@ -86,7 +86,7 @@ Bounding rules (discovery must not bloat the trip or break the Guardrails):
 Each **major anchor point** (the day's 1–2 必留 places, not every minor stop) gets a small cluster that reveals it in three tiers:
 
 - 📖 **History** — fixed (the substance rules below).
-- 🌾 **Terroir / 風土** — fixed (produce / sake / cuisine tied to the land).
+- 🌾 **Terroir / 風土** — fixed (produce / wine / cuisine tied to the land).
 - 🔭 **2–3 humanities lenses** — *selected* to fit this specific place.
 
 **Lens palette** — illustrative, not a closed list; pick what fits or coin one a place needs: 港口與流通 · 產業與勞動 · 食物與飲酒 · 信仰與儀式 · 民俗與生活技藝 · 美術與設計 · 建築與都市形態 · 文學與影像 · 地景與災害 · 邊界與身份. Each should reveal *how the place works*, not a vague theme. Start from the place, not the list — coin a lens a place needs even if it isn't above.
@@ -97,7 +97,7 @@ Each **major anchor point** (the day's 1–2 必留 places, not every minor stop
 - **Place sovereignty over preference.** The place's real character leads. The baked-in interests break ties and choose the *entry angle*; they never replace a place's true theme (a religion-first town stays a religion-first read even for an art lover).
 
 **Write lenses as insight, not labels:**
-- Title each as a *way of seeing*, not a bare tag — e.g. 〔地理之眼〕為什麼這裡是天然良港 · 〔產業脈絡〕魚市場之後.
+- Title each as a *way of seeing*, not a bare tag.
 - Use one of: a **downstream sentence** (one causal line, 地理 → 產業 → 飲食); an **absence argument** (without this lens you'd misread X as Y, missing Z); or an **irreplaceable vantage** (this lens resolves higher *here* than elsewhere, because…). End on something visible on site today.
 
 **Placement & anti-bloat:** lenses are flat sub-sections *inside* the anchor point's fold, after 風土 — not a new top-level fold, not a third tap. Only the day's 1–2 anchor points carry a cluster; minor stops stay timeline-only. Only substantive anchors earn one — if history or terroir is thin for a point, keep it to a line or fold it into a lens; don't pad the fixed blocks to fill the shape.
