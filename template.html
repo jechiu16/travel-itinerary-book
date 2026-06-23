@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  TRAVEL ITINERARY BOOK — reusable template
+  Fill the slots; do not restyle from scratch.
+
+  Structure:  cover → nav → intro-card → [day sections] → buying → checklist → footer
+  Per day:    day-head → 任務/交通 lines + verdict → 主動線 timeline (always visible)
+              → c-tip / c-book callouts → folds: 📖history 🌾風土 🍴餐 🛍️買 ♺備選
+
+  Conventions demonstrated below (search for "EXAMPLE"):
+    - timeline event with inline verified hours/price + gov official-site link
+    - c-book / c-tip callouts (NO correction boxes — see SKILL voice rules)
+    - 📖 history fold with NESTED 深入 folds (up to 3 levels deep)
+    - A/B "二選一" selector kept INSIDE a second-layer fold on one timeline event
+    - honest pills: 必留 / 條件保留 / 可加 / 可砍
+  Place links use Google Maps search:
+    https://www.google.com/maps/search/?api=1&query=<URL-encoded name>
+  ============================================================================
+-->
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>（行程標題）｜（日期區間）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FBF8F1;
+  --paper-2:#F4EEE1;
+  --ink:#262220;
+  --ink-soft:#6B6258;
+  --navy:#1C305C;
+  --vermilion:#B22D1F;
+  --vermilion-soft:#FBEEEC;
+  --gold:#9C7C42;
+  --gold-soft:#F6EFE0;
+  --pine:#2D4F39;
+  --pine-soft:#EBF1EC;
+  --border:#DCD2BF;
+  --card:#FFFFFF;
+  --serif:'Noto Serif TC',serif;
+  --sans:'Noto Sans TC',-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  line-height:1.75;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:760px;margin:0 auto;padding:20px 14px 64px}
+
+/* ===== 封面 ===== */
+.cover{
+  text-align:center;
+  padding:36px 18px 30px;
+  border:1.5px solid var(--border);
+  background:var(--paper);
+  border-radius:14px;
+  margin-bottom:22px;
+}
+.cover-kicker{font-family:var(--sans);font-size:.82rem;letter-spacing:.2em;color:var(--ink-soft);font-weight:500;margin-bottom:12px;}
+.cover-title{font-family:var(--serif);font-size:2.2rem;font-weight:900;line-height:1.2;letter-spacing:.04em;margin-bottom:10px;}
+.cover-sub{color:var(--gold);font-size:.95rem;letter-spacing:.1em;margin-bottom:16px}
+.cover-meta{font-size:.82rem;color:var(--ink-soft);line-height:1.7}
+.cover-chips{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:14px}
+.cover-chips span{font-size:.78rem;font-weight:700;padding:3px 11px;border:1px solid var(--border);background:#fff;border-radius:2px;color:var(--navy);}
+
+/* ===== 導覽 ===== */
+.nav{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:26px;}
+.nav a{display:flex;flex-direction:column;align-items:center;gap:2px;padding:9px 3px;border:1px solid var(--border);background:#fff;border-radius:3px;text-decoration:none;color:var(--ink);}
+.nav a .kanji{font-family:var(--serif);font-size:1.25rem;font-weight:900;color:var(--vermilion);line-height:1}
+.nav a small{font-size:.68rem;color:var(--ink-soft)}
+
+/* ===== 導語卡 ===== */
+.intro-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 16px;margin-bottom:24px;}
+.intro-card h2{font-family:var(--serif);font-size:1.15rem;color:var(--navy);margin-bottom:8px;letter-spacing:.04em}
+.intro-card p{font-size:.9rem;color:var(--ink-soft)}
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.legend span{display:inline-flex;align-items:center;gap:5px;font-size:.74rem;color:var(--ink-soft)}
+
+/* ===== 每日區塊 ===== */
+.day{margin-bottom:30px}
+.day-head{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:14px 14px 0 0;background:linear-gradient(100deg,var(--navy),#2C4A78);color:#fff;}
+.day-kanji{font-family:var(--serif);font-size:2.4rem;font-weight:900;line-height:1;color:#fff;text-shadow:0 1px 0 rgba(0,0,0,.2);}
+.day-headtext{flex:1}
+.day-theme{font-family:var(--serif);font-size:1.18rem;font-weight:700;letter-spacing:.03em;line-height:1.35}
+.day-date{font-size:.78rem;opacity:.85;font-family:var(--sans);margin-top:2px;letter-spacing:.04em}
+.day-body{border:1px solid var(--border);border-top:0;border-radius:0 0 14px 14px;background:var(--card);padding:16px 14px 14px;}
+
+/* 任務／交通／判斷 */
+.line{font-size:.9rem;margin-bottom:8px;color:var(--ink-soft);line-height:1.7}
+.line b{color:var(--navy);font-weight:700}
+.verdict{background:var(--gold-soft);border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:8px;padding:10px 12px;margin:10px 0 18px;font-size:.88rem;color:#5A4A2C;line-height:1.7;}
+.verdict b{color:var(--gold);font-weight:700}
+
+/* 區塊標題 */
+.block-label{font-family:var(--serif);font-size:.98rem;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:8px;margin:4px 0 12px;padding-bottom:6px;border-bottom:1.5px solid var(--ink);}
+.block-label .ic{font-size:1rem}
+
+/* ===== 時間軸（主動線・常駐） ===== */
+.timeline{position:relative;padding-left:22px;border-left:1.5px solid var(--border);margin-left:4px}
+.event{position:relative;padding-bottom:18px}
+.event:last-child{padding-bottom:2px}
+.event::before{content:'';position:absolute;left:-29px;top:5px;width:9px;height:9px;border-radius:50%;background:var(--paper);border:2px solid var(--vermilion);}
+.event.minor::before{border-color:var(--ink-soft)}
+.event-time{font-family:var(--sans);font-size:.78rem;font-weight:700;color:var(--navy);letter-spacing:.02em;}
+.event-title{font-size:1.02rem;font-weight:700;line-height:1.4;margin-top:1px}
+.event-title a{color:var(--ink);text-decoration:none;border-bottom:1.5px solid var(--gold)}
+.event-desc{font-size:.86rem;color:var(--ink-soft);margin-top:3px;line-height:1.65}
+.gov{font-size:.74rem;margin-left:6px;white-space:nowrap}
+.gov a{color:var(--pine);text-decoration:none;border-bottom:1px dotted var(--pine)}
+
+/* pill 標籤 */
+.pill{display:inline-block;font-family:var(--sans);font-size:.66rem;font-weight:700;padding:1px 7px;border-radius:999px;border:1px solid var(--border);vertical-align:middle;margin-left:5px;line-height:1.5;white-space:nowrap;}
+.p-must{color:var(--vermilion);border-color:var(--vermilion);background:var(--vermilion-soft)}
+.p-cond{color:var(--gold);border-color:var(--gold);background:var(--gold-soft)}
+.p-cut{color:var(--ink-soft);border-color:var(--border);background:var(--paper-2)}
+.p-add{color:var(--pine);border-color:var(--pine);background:var(--pine-soft)}
+.p-eat{color:var(--navy);border-color:var(--navy);background:#EAEFF7}
+.p-short{color:var(--ink-soft);border-color:var(--border);background:#fff}
+
+/* 提醒框 / 預約框（注意：沒有「校正框」——查證後直接寫正確值） */
+.callout{border-radius:8px;padding:9px 12px;margin:12px 0;font-size:.82rem;line-height:1.65;}
+.callout b{font-weight:700}
+.c-tip{background:#FFF9E8;border:1px solid #ECDCA6}
+.c-tip b{color:var(--gold)}
+.c-book{background:var(--pine-soft);border:1px solid #C5D8C9}
+.c-book b{color:var(--pine)}
+
+/* ===== 折疊區 ===== */
+details{background:#FCFAF4;border:1px solid var(--border);border-radius:10px;margin-top:10px;overflow:hidden;}
+details[open]{background:#fff}
+summary{list-style:none;cursor:pointer;padding:11px 13px;font-family:var(--serif);font-size:.92rem;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:8px;}
+summary::-webkit-details-marker{display:none}
+summary .chev{margin-left:auto;color:var(--gold);font-size:.8rem;transition:transform .2s}
+details[open] summary .chev{transform:rotate(90deg)}
+.det-body{padding:4px 13px 13px;border-top:1px dashed var(--border)}
+
+/* 內層摺頁（第二、三層） */
+.fold{margin-top:7px;background:var(--paper-2);border:1px solid var(--border);border-radius:7px}
+.fold summary{padding:7px 10px;font-size:.8rem;color:var(--pine)}
+.fold .det-body{padding:9px 11px;font-size:.83rem;color:var(--ink-soft);line-height:1.7}
+.fold .fold{background:#fff;margin-top:6px}
+.fold .fold summary{color:var(--navy)}
+
+/* 餐點 / 採買 / 備選 條目 */
+.food-item,.buy-item,.alt-item{padding:9px 0;border-bottom:1px dashed var(--border);font-size:.88rem;}
+.food-item:last-child,.buy-item:last-child,.alt-item:last-child{border-bottom:0}
+.fi-name{font-weight:700;color:var(--ink)}
+.fi-name a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--gold)}
+.fi-desc{display:block;color:var(--ink-soft);font-size:.83rem;margin-top:2px;line-height:1.6}
+.sub-h{font-family:var(--serif);font-size:.82rem;font-weight:700;color:var(--gold);letter-spacing:.06em;margin:10px 0 2px}
+.sub-h:first-child{margin-top:0}
+
+/* ===== 採買總表 ===== */
+.section-div{text-align:center;font-family:var(--serif);font-weight:900;font-size:1.5rem;color:var(--ink);letter-spacing:.1em;margin:38px 0 6px;position:relative;}
+.section-div::after{content:'';display:block;width:46px;height:3px;background:var(--vermilion);margin:10px auto 0}
+.section-cap{text-align:center;font-size:.85rem;color:var(--ink-soft);margin-bottom:20px}
+.rule-grid{display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:18px}
+.rule{background:#fff;border:1px solid var(--border);border-radius:10px;border-left:4px solid var(--navy);padding:11px 13px}
+.rule b{display:block;font-family:var(--serif);color:var(--navy);font-size:.95rem;margin-bottom:3px}
+.rule span{font-size:.84rem;color:var(--ink-soft)}
+.buy-table{width:100%;border-collapse:collapse;font-size:.85rem;background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.buy-table th{background:var(--paper-2);color:var(--navy);font-family:var(--serif);text-align:left;padding:9px 11px;font-size:.85rem}
+.buy-table td{padding:9px 11px;border-top:1px solid var(--border);vertical-align:top}
+.buy-table td:first-child{font-weight:700;width:38%}
+.buy-table small{color:var(--ink-soft);font-weight:400}
+.buy-table a{color:var(--navy);text-decoration:none;border-bottom:1px solid var(--gold)}
+.cat-grid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:16px}
+.cat{background:#fff;border:1px solid var(--border);border-radius:10px;padding:13px}
+.cat h4{font-family:var(--serif);font-size:.96rem;color:var(--vermilion);margin-bottom:8px;letter-spacing:.03em}
+.cat ul{list-style:none}
+.cat li{padding:6px 0;border-bottom:1px dashed var(--border);font-size:.86rem}
+.cat li:last-child{border-bottom:0}
+.cat li b{color:var(--ink)}
+.cat li span{display:block;color:var(--ink-soft);font-size:.8rem;margin-top:1px}
+
+/* 行前檢查 */
+.check{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 16px 6px;margin-top:24px}
+.check h2{font-family:var(--serif);font-size:1.15rem;color:var(--navy);margin-bottom:10px}
+.check li{list-style:none;padding:9px 0 9px 24px;position:relative;font-size:.87rem;border-bottom:1px dashed var(--border);color:var(--ink-soft)}
+.check li:last-child{border-bottom:0}
+.check li::before{content:'✓';position:absolute;left:0;top:9px;color:var(--pine);font-weight:900}
+.check li b{color:var(--navy)}
+
+.footer{text-align:center;margin-top:38px;padding-top:18px;border-top:1px solid var(--border);color:var(--ink-soft);font-size:.78rem;line-height:1.7}
+
+@media(min-width:620px){
+  .rule-grid{grid-template-columns:repeat(3,1fr)}
+  .cat-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:380px){.cover-title{font-size:1.85rem}}
+.backtop{position:fixed;right:14px;bottom:16px;width:42px;height:42px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:1.1rem;box-shadow:0 3px 10px rgba(0,0,0,.25);opacity:.92;}
+</style>
+</head>
+<body>
+<div class="wrap" id="top">
+
+  <!-- ===== 封面 ===== -->
+  <header class="cover">
+    <p class="cover-kicker">（年份 ・ 目的地）</p>
+    <h1 class="cover-title">（行程標題）</h1>
+    <p class="cover-sub">（城市・城市・城市）</p>
+    <p class="cover-meta">（日期區間）｜（進出方式）<br>（交通方式・特殊時段註記）</p>
+    <!-- chips = 旅人的興趣標籤，驅動全程「要不要加」的判斷 -->
+    <div class="cover-chips"><span>歷史</span><span>酒</span><span>美術</span><span>農特產品</span><span>在地食物</span></div>
+  </header>
+
+  <!-- ===== 導覽（一二三…，純數字，不用壹貳參） ===== -->
+  <nav class="nav">
+    <a href="#day1"><span class="kanji">一</span><small>（城市）</small></a>
+    <a href="#day2"><span class="kanji">二</span><small>（城市）</small></a>
+    <!-- …每天一格 -->
+    <a href="#logistics"><span class="kanji">宿</span><small>住宿航班</small></a>
+    <a href="#buying"><span class="kanji">買</span><small>採買</small></a>
+  </nav>
+
+  <!-- ===== 說明 ===== -->
+  <section class="intro-card">
+    <h2>關於這份行程</h2>
+    <p>（骨架已確定的部分）。主動線常駐顯示，餐點、採買、備選收進折疊，手機好讀。所有時間與票價已於（查證月份）查證。</p>
+    <div class="legend">
+      <span><i class="pill p-must">必留</i>符合偏好的核心</span>
+      <span><i class="pill p-cond">條件保留</i>看天氣人潮</span>
+      <span><i class="pill p-add">可加</i>順路加值</span>
+      <span><i class="pill p-cut">可砍</i>邊際低</span>
+    </div>
+    <div class="callout c-tip" style="margin-top:14px"><b>出發前一週務必複查：</b>（旺季對號座、熱門店訂位、各館臨時休館與營業時間）。</div>
+  </section>
+
+  <!-- ===== 航班與住宿（Mode A：已訂明細／Mode B：候選＋訂房連結，標待訂） ===== -->
+  <section class="intro-card" id="logistics">
+    <h2>航班與住宿</h2>
+    <table class="buy-table" style="margin-bottom:10px">
+      <thead><tr><th>航班</th><th>時間</th></tr></thead>
+      <tbody>
+        <tr><td>去程（班號）<br><small>→ 目的地</small></td><td>（日期）抵達 <b>（時間）</b><br><small>（出關/轉乘提醒）</small></td></tr>
+        <tr><td>回程（班號）<br><small>出發地 →</small></td><td>（日期）起飛 <b>（時間）</b><br><small>（最晚進機場時間）</small></td></tr>
+      </tbody>
+    </table>
+    <table class="buy-table">
+      <thead><tr><th>夜</th><th>住宿</th></tr></thead>
+      <tbody>
+        <!-- 飯店名稱用 Google Maps 連結，別純文字；Mode B 改成候選＋訂房連結並標「待訂」 -->
+        <tr><td>（日期）<br><small>Day 1</small></td><td><b><a href="https://www.google.com/maps/search/?api=1&query=%E9%A3%AF%E5%BA%97%E5%90%8D">（飯店名）</a></b><br><small>（區位・check-in・含餐）</small></td></tr>
+      </tbody>
+    </table>
+    <div class="callout c-tip" style="margin-top:12px"><b>住宿提醒：</b>（自助入住、行李移館、含餐等）。實際房型／含餐以各訂房確認為準。</div>
+    <!-- Mode B 才加：待訂優先序（對號特急→旺季飯店/租車→賽事票→熱門餐廳），每項附在哪訂/何時開賣/會否秒殺 -->
+  </section>
+
+  <!-- ========================= EXAMPLE DAY ========================= -->
+  <section class="day" id="day1">
+    <div class="day-head">
+      <div class="day-kanji">一</div>
+      <div class="day-headtext">
+        <div class="day-theme">（當日主題：地點：副題）</div>
+        <div class="day-date">（日期）｜（路線：A → B → C）</div>
+      </div>
+    </div>
+    <div class="day-body">
+      <p class="line"><b>任務：</b>（今天的重心是什麼、不要做什麼）</p>
+      <p class="line"><b>交通：</b>（關鍵交通時間、訂票/租車要點）</p>
+      <div class="verdict"><b>景點判斷：</b>（哪個必留、哪個可砍、為什麼；含當日週幾的休館提醒）</div>
+
+      <div class="block-label"><span class="ic">🗺️</span>主動線</div>
+      <div class="timeline">
+
+        <!-- EXAMPLE: 一般事件，含查證後的時間/票價 inline + 官網 gov 連結 -->
+        <div class="event">
+          <div class="event-time">14:40</div>
+          <div class="event-title"><a href="https://www.google.com/maps/search/?api=1&query=%E5%9C%B0%E9%BB%9E%E5%90%8D%E7%A8%B1">（地點名）</a> <span class="pill p-must">必留</span></div>
+          <div class="event-desc">本日核心。（一句重點）。（營業 9:30–17:00、末入 16:30、公休每月第 4 個週三、票價 ¥XXX——查證後直接寫正確值，不要寫「原本寫錯」）。<span class="gov">官網 <a href="https://example.com/">example.com</a></span></div>
+        </div>
+
+        <!-- EXAMPLE: 次要事件（minor → 灰點），短停 -->
+        <div class="event minor">
+          <div class="event-time">16:15</div>
+          <div class="event-title"><a href="https://www.google.com/maps/search/?api=1&query=%E5%9C%B0%E9%BB%9E%E5%90%8D%E7%A8%B1">（地點名）</a> <span class="pill p-short">短停</span></div>
+          <div class="event-desc">（散步拍照即可、10–20 分、串接動線怎麼走最順）。</div>
+        </div>
+
+        <!-- EXAMPLE: A/B「二選一」——放進第二層 fold，不要並排兩個 event（會誤導成兩個都做） -->
+        <div class="event">
+          <div class="event-time">09:30</div>
+          <div class="event-title">上午行程（二選一，見下方）</div>
+          <div class="event-desc">看天氣/體力選一個，不要兩個都排。</div>
+          <details class="fold">
+            <summary>A.（選項一名稱）</summary>
+            <div class="det-body">
+              <p><a href="https://www.google.com/maps/search/?api=1&query=A">地圖</a>｜<a href="https://example.com/">官網</a></p>
+              <p>（適合誰、交通成本、查證後的時間票價）。</p>
+            </div>
+          </details>
+          <details class="fold">
+            <summary>B.（選項二名稱）</summary>
+            <div class="det-body">
+              <p><a href="https://www.google.com/maps/search/?api=1&query=B">地圖</a>｜<a href="https://example.com/">官網</a></p>
+              <p>（適合誰、查證後的時間票價）。</p>
+            </div>
+          </details>
+        </div>
+
+      </div>
+
+      <!-- 只用 c-book / c-tip；查證後沒有「校正框」 -->
+      <div class="callout c-book"><b>建議先訂：</b>（需要預約的店/票、提前幾天、電話或線上）。</div>
+      <div class="callout c-tip"><b>時序提醒：</b>（哪個熱門品/景點要早到、避開什麼時段）。</div>
+
+      <!-- ===== 📖 歷史：必須有料，含巢狀「深入」折疊（最多三層） ===== -->
+      <details>
+        <summary>📖 （主題）的歷史<span class="chev">▸</span></summary>
+        <div class="det-body">
+          <p><b>（前因：為什麼會這樣？）</b></p>
+          <p>（背景脈絡：人事時地物——誰、何時、在哪、做了什麼、結果如何。寫成有因果的故事，不是條列年表。）</p>
+
+          <!-- 第二層：深入子題 -->
+          <details class="fold">
+            <summary>深入：（子題一）</summary>
+            <div class="det-body">
+              <p>（更細的故事或人物，給有興趣的人。）</p>
+              <!-- 第三層（必要時）：再深一階 -->
+              <details class="fold">
+                <summary>再深入：（更細的子題）</summary>
+                <div class="det-body"><p>（資料控才會展開的細節。）</p></div>
+              </details>
+            </div>
+          </details>
+
+          <details class="fold">
+            <summary>深入：（子題二）</summary>
+            <div class="det-body"><p>（另一條故事線。）</p></div>
+          </details>
+
+          <p style="margin-top:8px"><b>必看：</b>（到現場具體要看哪些東西——建築細節、實物、視角）。</p>
+        </div>
+      </details>
+
+      <!-- ===== 🌾 風土：農產 / 酒 / 料理 與地方的連結 ===== -->
+      <details>
+        <summary>🌾 風土：（地方的酒/農產/料理）<span class="chev">▸</span></summary>
+        <div class="det-body">
+          <p><b>（在地酒）</b>：（水源、氣候、酒造歷史、推薦買什麼、能不能試飲）。</p>
+          <p><b>（在地農產/料理）</b>：（產季、為什麼這裡特別好、怎麼吃/帶）。</p>
+        </div>
+      </details>
+
+      <!-- ===== 🍴 餐點候選 ===== -->
+      <details>
+        <summary>🍴 餐點候選<span class="chev">▸</span></summary>
+        <div class="det-body">
+          <div class="sub-h">午餐</div>
+          <div class="food-item"><span class="fi-name"><a href="https://www.google.com/maps/search/?api=1&query=%E5%BA%97%E5%90%8D">（店名）</a></span> <span class="pill p-eat">經典</span><span class="fi-desc">（特色、公休、是否需訂位、現金限定等查證資訊）。</span></div>
+          <div class="sub-h">晚餐</div>
+          <div class="food-item"><span class="fi-name"><a href="https://www.google.com/maps/search/?api=1&query=%E5%BA%97%E5%90%8D">（店名）</a></span> <span class="pill p-short">備案</span><span class="fi-desc">（為什麼適合當備案）。</span></div>
+        </div>
+      </details>
+
+      <!-- ===== 🛍️ 今天適合買 ===== -->
+      <details>
+        <summary>🛍️ 今天適合買<span class="chev">▸</span></summary>
+        <div class="det-body">
+          <div class="buy-item"><span class="fi-name"><a href="https://www.google.com/maps/search/?api=1&query=%E5%BA%97%E5%90%8D">（店名/品項）</a></span> <span class="pill p-add">酒</span><span class="fi-desc">（為什麼這裡買、買小量/小瓶、冷藏與否）。</span></div>
+        </div>
+      </details>
+
+      <!-- ===== ♺ 備選方案 ===== -->
+      <details>
+        <summary>♺ 備選方案<span class="chev">▸</span></summary>
+        <div class="det-body">
+          <div class="alt-item"><span class="fi-name"><a href="https://www.google.com/maps/search/?api=1&query=%E5%9C%B0%E9%BB%9E">（地點）</a></span> <span class="pill p-add">可加</span><span class="fi-desc">（順路加值、扣合哪個興趣）。</span></div>
+          <div class="alt-item"><span class="fi-name"><a href="https://www.google.com/maps/search/?api=1&query=%E5%9C%B0%E9%BB%9E">（地點）</a></span> <span class="pill p-cut">可砍</span><span class="fi-desc">（為什麼可砍——保護旅人時間）。</span></div>
+        </div>
+      </details>
+
+    </div>
+  </section>
+  <!-- ===== 複製上面整個 <section class="day"> 給每一天 ===== -->
+
+  <!-- ========================= 採買 ========================= -->
+  <section id="buying">
+    <div class="section-div">採買清單</div>
+    <p class="section-cap">（採買策略一句話：地方性在地方買、熱門品集中在哪、冷藏放最後）。</p>
+    <div class="rule-grid">
+      <div class="rule"><b>（規則一）</b><span>（說明）</span></div>
+      <div class="rule"><b>（規則二）</b><span>（說明）</span></div>
+      <div class="rule"><b>（規則三）</b><span>（說明）</span></div>
+    </div>
+    <details open>
+      <summary>📋 每天買什麼最合理<span class="chev">▸</span></summary>
+      <div class="det-body">
+        <table class="buy-table">
+          <thead><tr><th>地點</th><th>買什麼／規則</th></tr></thead>
+          <tbody>
+            <tr><td>（地點）<br><small>（哪天）</small></td><td>（品項）。<small>（規則）。</small></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    <details>
+      <summary>🎁 品類清單：具體買什麼<span class="chev">▸</span></summary>
+      <div class="det-body">
+        <div class="cat-grid">
+          <div class="cat"><h4>（品類）</h4><ul>
+            <li><b>（品項）</b><span>（哪裡買、注意事項）</span></li>
+          </ul></div>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ===== 行前最後檢查 ===== -->
+  <section class="check">
+    <h2>行前最後檢查</h2>
+    <ul>
+      <li><b>餐廳：</b>（要訂的店）</li>
+      <li><b>交通：</b>（要搶的票/班次）</li>
+      <li><b>票價/時間：</b>各館料金與營業時間以官網為準；出發前一週複查臨時休館。</li>
+    </ul>
+  </section>
+
+  <footer class="footer">
+    <p>製作日（日期）｜所有景點與店名皆為 Google Maps 搜尋連結。<br>出發前一週請再核對營業時間、臨時店休、預約制、交通班次。</p>
+  </footer>
+
+</div>
+<a href="#top" class="backtop" aria-label="回頂端">↑</a>
+</body>
+</html>
