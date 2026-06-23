@@ -172,8 +172,16 @@ function checkHtmlFile(file) {
     }
   }
 
-  if (file.startsWith("sample/") && html.includes("https://example.com/")) {
-    fail(`${file}: sample output still contains example.com placeholder links.`);
+  if (file.startsWith("sample/")) {
+    if (markup.includes("https://example.com/")) {
+      fail(`${file}: sample output still contains example.com placeholder links.`);
+    }
+    if (markup.includes('class="cover-chips"')) {
+      fail(`${file}: sample must not surface interest chips — interests are baked in, shown as content not labels.`);
+    }
+    if (!markup.includes('class="lens-h"')) {
+      fail(`${file}: sample should demonstrate the place-lens (視角) model — missing lens-h.`);
+    }
   }
 }
 

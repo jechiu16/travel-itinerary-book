@@ -84,6 +84,7 @@ body{
 .intro-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 16px;margin-bottom:24px;}
 .intro-card h2{font-family:var(--serif);font-size:1.15rem;color:var(--navy);margin-bottom:8px;letter-spacing:.04em}
 .intro-card p{font-size:.9rem;color:var(--ink-soft)}
+.echo{font-size:.84rem;line-height:1.8;border-left:3px solid var(--gold);padding:8px 13px;margin-top:12px;color:var(--ink-soft)}
 .legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
 .legend span{display:inline-flex;align-items:center;gap:5px;font-size:.74rem;color:var(--ink-soft)}
 
@@ -225,7 +226,9 @@ details[open] summary .chev{transform:rotate(90deg)}
   <!-- ===== 說明 ===== -->
   <section class="intro-card">
     <h2>關於這份行程</h2>
-    <p>（發散後已確認的行程骨架）。主動線常駐顯示，餐點、採買、備選收進折疊，手機好讀。所有時間與票價已於（查證月份）查證。</p>
+    <p>（發散後已確認的行程骨架）。主動線常駐顯示，每個大點底下收著「歷史・風土・視角」叢集，餐點、採買、備選另折，手機好讀。所有時間與票價已於（查證月份）查證。</p>
+    <!-- Echo（全程回聲）：跨 ≥3 個地點重複出現的主題，一句話；真的有才寫。對應 Arc（弧線）放最後一天收束。 -->
+    <p class="echo"><b>本次旅行的回聲：</b>（例如「火山地景／開拓移民／冷涼農業」——只在主題真實重複時寫）。</p>
     <div class="legend">
       <span><i class="pill p-must">必留</i>符合偏好的核心</span>
       <span><i class="pill p-cond">條件保留</i>看天氣人潮</span>

@@ -89,6 +89,23 @@ are weak); discovery obeys the Guardrails. If nothing clears the bar, say "no ad
 frontier find" — never pad. Also: in the planning brief, proactively name 2–3 strengths of
 the destination I didn't mention and ask if they're in scope.
 
+PLACE LENSES (per major anchor point)
+For each day's 1–2 anchor points (not every stop), build one cluster: 📖 history (fixed) +
+🌾 terroir (fixed) + 2–3 selected humanities lenses (視角) — flat sub-sections INSIDE one
+fold, not separate folds. A lens is a way of SEEING that reveals how the place works
+(geography / industry / architecture / religion / image-making / hazard / trade … — pick
+what fits, coin one if needed). Write each as insight, not a label: a way-of-seeing title,
+then a downstream sentence (A→B→C), an absence argument (without this you'd misread X as Y),
+or an irreplaceable vantage — ending on something visible on site. Discipline: each lens
+clears a bar (visible on site · locally distinctive · reveals how it works); take the 2
+strongest, a 3rd only if equally strong and non-redundant; skip if forced (blank beats
+padding); the place's real character leads, my interests only break ties. Don't show
+interest tags/chips in the output — the lenses ARE the content.
+
+TRIP THREADS (only if genuine)
+- Echo: one line in the intro naming motifs that recur across ≥3 places.
+- Arc: a short closing paragraph on the last day tracing the through-line. Skip if forced.
+
 OUTPUT SHAPE (one <section> per day, in order)
 1. Day heading: number, theme, date, route.
 2. Short mission/transport notes + an honest verdict (what matters today, what to cut).
@@ -96,8 +113,8 @@ OUTPUT SHAPE (one <section> per day, in order)
    Maps search URL (https://www.google.com/maps/search/?api=1&query=<URL-encoded name>),
    a concise description with verified hours/price inline, and an official link where useful.
 4. Callouts only when actionable: timing tips or reservation reminders. No correction boxes.
-5. Collapsible folds for: history, local produce/sake/cuisine, food candidates, shopping,
-   and alternatives (incl. discoveries).
+5. Per major anchor point: a 📖 history + 🌾 terroir + 2–3 視角 lens cluster (see Place
+   lenses); plus day-level folds for food, shopping, and alternatives (incl. discoveries).
 Rules: history folds carry substance, not captions (cause→effect, what to actually see on
 site, a real story, who/when/where/what — nest up to 3 levels for deep-dives). A/B choices
 go INSIDE one "二選一" fold, never as two parallel timeline events (that reads as "do both").

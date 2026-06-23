@@ -58,11 +58,11 @@ body{
 }
 .cover-sub{color:var(--gold);font-size:.95rem;letter-spacing:.1em;margin-bottom:16px}
 .cover-meta{font-size:.82rem;color:var(--ink-soft);line-height:1.7}
-.cover-chips{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:14px}
-.cover-chips span{
-  font-size:.78rem;font-weight:700;
-  padding:3px 11px;border:1px solid var(--border);background:#fff;border-radius:2px;color:var(--navy);
-}
+.echo{font-size:.84rem;line-height:1.8;border-left:3px solid var(--gold);padding:8px 13px;margin-top:12px;color:var(--ink-soft)}
+.sub-h2{font-weight:700;color:var(--navy);font-size:.92rem;margin:15px 0 5px;padding-bottom:3px;border-bottom:1px solid var(--border)}
+.sub-h2:first-child{margin-top:2px}
+.lens-h{font-weight:700;color:var(--pine);margin-top:11px;font-size:.9rem}
+.lens-h + p{margin-top:3px}
 
 /* ===== 導覽 ===== */
 .nav{
@@ -263,9 +263,6 @@ details[open] summary .chev{transform:rotate(90deg)}
     <h1 class="cover-title">北海道七日行程</h1>
     <p class="cover-sub">札幌・美瑛・洞爺・函館</p>
     <p class="cover-meta">2026 / 08 / 13（四）– 08 / 19（三）｜札幌進出<br>Day 2 自駕・其餘 JR／市電｜盂蘭盆節控時版</p>
-    <div class="cover-chips">
-      <span>歷史</span><span>酒</span><span>美術</span><span>農特產品</span><span>在地食物</span>
-    </div>
   </header>
 
   <!-- ===== 導覽 ===== -->
@@ -284,7 +281,8 @@ details[open] summary .chev{transform:rotate(90deg)}
   <!-- ===== 說明 ===== -->
   <section class="intro-card">
     <h2>關於這份行程</h2>
-    <p>行程骨架已確定（札幌進出、Day 2 自駕、洞爺過夜、函館兩晚）。「主動線」常駐顯示，餐點、採買、備選收進折疊，手機好讀。所有時間與票價已於 2026-06 查證。</p>
+    <p>行程骨架已確定（札幌進出、Day 2 自駕、洞爺過夜、函館兩晚）。「主動線」常駐顯示，每個大點底下收著「歷史・風土・視角」的折疊，餐點、採買、備選另折。手機好讀。所有時間與票價已於 2026-06 查證，出發前一週請複查。</p>
+    <p class="echo"><b>本次旅行的回聲：</b>這趟路在看兩股力量把北海道塑形——<b>火山造的地</b>（美瑛的拼布丘陵、洞爺的破火山口、函館的沙頸岬夜景），與<b>人刻意造的鎮</b>（開拓使的棋盤札幌、開港爬上坡的函館、黑船逼出的五稜星，一路到企業在原生林裡蓋出的 ES CON 球場鎮）。地由火山寫，鎮由近代化寫——最後一天回頭收束這條線。</p>
     <div class="legend">
       <span><i class="pill p-must">必留</i>符合偏好的核心</span>
       <span><i class="pill p-cond">條件保留</i>看天氣人潮</span>
@@ -302,8 +300,8 @@ details[open] summary .chev{transform:rotate(90deg)}
     <table class="buy-table" style="margin-bottom:10px">
       <thead><tr><th>航班</th><th>時間</th></tr></thead>
       <tbody>
-        <tr><td>去程 （去程示範班機）<br><small>→ 新千歲</small></td><td>8/13（四）抵達 <b>11:05</b><br><small>盂蘭盆節出關抓 60–90 分</small></td></tr>
-        <tr><td>回程 （回程示範班機）<br><small>新千歲 →</small></td><td>8/19（三）起飛 <b>14:40</b><br><small>LCC＋盂蘭盆節，最晚 11:30–12:00 進國際線</small></td></tr>
+        <tr><td>去程班機（示範）<br><small>→ 新千歲</small></td><td>8/13（四）抵達 <b>11:05</b><br><small>盂蘭盆節出關抓 60–90 分</small></td></tr>
+        <tr><td>回程班機（示範）<br><small>新千歲 →</small></td><td>8/19（三）起飛 <b>14:40</b><br><small>LCC＋盂蘭盆節，最晚 11:30–12:00 進國際線</small></td></tr>
       </tbody>
     </table>
     <table class="buy-table">
@@ -339,7 +337,7 @@ details[open] summary .chev{transform:rotate(90deg)}
         <div class="event">
           <div class="event-time">11:05</div>
           <div class="event-title"><a href="https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E5%8D%83%E6%AD%B3%E6%A9%9F%E5%A0%B4">新千歲機場</a></div>
-          <div class="event-desc">（去程示範班機） 抵達。盂蘭盆節出關抓 60–90 分，先不要排硬性餐廳。</div>
+          <div class="event-desc">去程班機 抵達。盂蘭盆節出關抓 60–90 分，先不要排硬性餐廳。</div>
         </div>
         <div class="event minor">
           <div class="event-time">12:45</div>
@@ -376,12 +374,15 @@ details[open] summary .chev{transform:rotate(90deg)}
       <div class="callout c-book"><b>球票務必先買：</b>火腿主場人氣高、盂蘭盆節更滿，開賣後盡早在球團官方售票（FANTICKET）或售票平台訂位。回程接駁票可在入場前先於券售機買好，避免散場排隊。</div>
       <div class="callout c-tip"><b>搭車提醒：</b>去程搭「快速／區間快速 Airport」才停北廣島，<b>特別快速不停</b>，別搭錯。想免轉乘可用札幌站直達接駁（¥1,000）。tower eleven 溫泉想泡記得帶毛巾或現場租。</div>
 
+      <!-- ===== 大點叢集：ES CON FIELD（歷史・風土・視角） ===== -->
       <details>
-        <summary>📖 ES CON FIELD 與火腿鬥士：一座球場的誕生<span class="chev">▸</span></summary>
+        <summary>ES CON FIELD：一座球場的誕生・園內風土・兩種視角<span class="chev">▸</span></summary>
         <div class="det-body">
+
+          <div class="sub-h2">📖 歷史</div>
           <p><b>火腿為什麼要自己蓋一座球場？</b></p>
           <p>北海道日本火腿鬥士 2004 年從東京搬到札幌，主場是市營的「札幌巨蛋」。但球隊與札幌市的租用條件長期緊張——租金高、球場餐飲與廣告收入幾乎都歸場方、又是棒球足球共用，球團很難靠主場獲利。協商多年破裂後，火腿做了日本職棒前所未有的決定：<b>自己蓋一座球場</b>。</p>
-          <p>2023 年 3 月，ES CON FIELD HOKKAIDO 在北廣島市落成。它不是傳統球場，而是日本第一座結合「開閉式屋頂＋天然草皮」的球場（兩者向來難以並存）；本壘後方看台一度近到與 NPB 球場規程產生距離爭議，首季以特例放行。更關鍵的是它把球場做成「Fビレッジ（F Village）」——園內有精釀啤酒廠、溫泉、飯店、餐廳街，<b>沒有比賽日也能來玩</b>。這是日本職棒第一個真正意義上的「Ballpark（球場村）」，把看球從兩三小時的賽事，變成一整天的去處。</p>
+          <p>2023 年 3 月，ES CON FIELD HOKKAIDO 在北廣島市落成。它不是傳統球場，而是日本第一座結合「開閉式屋頂＋天然草皮」的球場（兩者向來難以並存）；本壘後方看台一度近到與 NPB 球場規程產生距離爭議，首季以特例放行。更關鍵的是它把球場做成「Fビレッジ（F Village）」——園內有精釀啤酒廠、溫泉、飯店、餐廳街，<b>沒有比賽日也能來玩</b>。這是日本職棒第一個真正意義上的「Ballpark（球場村）」。</p>
           <details class="fold">
             <summary>深入：大谷翔平與火腿的育成傳統</summary>
             <div class="det-body">
@@ -389,15 +390,21 @@ details[open] summary .chev{transform:rotate(90deg)}
             </div>
           </details>
           <p style="margin-top:8px"><b>必看：</b>三層樓高的巨大玻璃牆與可開閉屋頂；中外野「tower eleven」溫泉（邊泡邊看球，全球罕見）；本壘後方近到爭議的觀眾席；園內精釀啤酒廠的釀造槽。</p>
-        </div>
-      </details>
 
-      <details>
-        <summary>🌾 風土：球場裡的精釀啤酒與在地美食<span class="chev">▸</span></summary>
-        <div class="det-body">
-          <p><b>そらとしば by よなよなエール</b>：ES CON 園內的精釀啤酒餐廳，號稱世界第一座「能邊看釀造、邊看球」的球場釀酒廠，由日本知名精釀品牌「よなよなエール」（Yo-Ho Brewing）打造。現釀啤酒配球賽，扣合你的酒主題，比一般球場生啤有意思得多。</p>
-          <p><b>えふめし／七つ星横丁</b>：球場美食約 66 種，集合北海道在地攤——湯咖哩、成吉思汗烤羊、海鮮、拉麵、霜淇淋都有。把「在地食物」直接搬進球場，邊吃邊看球。</p>
-          <p><b>二条市場（市區）</b>：1903 年左右形成的札幌老市場，緊鄰創成川、離大通與札幌站都近。海鮮丼與毛蟹、海膽是強項，當作抵達日的在地第一餐剛好。</p>
+          <div class="sub-h2">🌾 風土</div>
+          <p><b>そらとしば by よなよなエール</b>：園內的精釀啤酒餐廳，號稱世界第一座「能邊看釀造、邊看球」的球場釀酒廠，由精釀品牌「よなよなエール」（Yo-Ho Brewing）打造。現釀啤酒配球賽，扣你的酒主題。</p>
+          <p><b>えふめし／七つ星横丁</b>：球場美食約 66 種，集合北海道在地攤——湯咖哩、成吉思汗、海鮮、拉麵、霜淇淋。把「在地食物」直接搬進球場。</p>
+
+          <div class="sub-h2">🔭 視角</div>
+          <p class="lens-h">〔產業脈絡之眼〕一支球隊在原生林裡蓋了一整座「鎮」</p>
+          <p>關鍵不是球場，是「球團＋球場一體經營」這個動機：火腿 2004 遷札幌後一直只是札幌巨蛋的房客，要再成長就得擁有自己的場館與周邊收益。於是球團（與母公司、電通等合資）在約 32 公頃土地上「從原生林造一座城」——球場之外還有公寓、銀髮住宅、glamping、認定こども園、日本最大級室內遊樂場，分五期規劃到 2042 年；甚至刻意命名「北海道」而非「北広島」，因為賣的是道級品牌、不受行政區綁住。<b>現場可看</b>：公寓陽台正對著外野、農場與保育園貼著看台——這就是「企業造鎮」的具體模樣。</p>
+          <p class="lens-h">〔地理／政治之眼〕為什麼是 5.7 萬人的北広島，而不是 197 萬的札幌</p>
+          <p>若以為球場選在北広島只是「土地大、近機場」，就錯過真正的決定因素——一場札幌市 vs 北広島市的招商競賽。北広島端出札幌給不起的條件：無償出借 20 公頃土地、10 年免徵固定資產稅與都市計畫稅、由市方負擔興建 JR 新車站。人口僅 5.7 萬的小市，靠財政誠意擊敗政令指定都市。<b>現場可看</b>：往北広島駅方向，正在施工／規劃的 JR 新駅預定地與駅西口再開發——那座新車站本身，就是當年招商承諾的實體證據。</p>
+          <details class="fold">
+            <summary>深入：他們離開的那座巨蛋，後來怎麼了</summary>
+            <div class="det-body"><p>2016 年札幌巨蛋調漲火腿單日使用料（媒體推估約 800 萬日圓／日）、附帶收入又幾乎歸場方 → 火腿求減租遭拒、啟動遷場 → 2023 遷出後，巨蛋頓失年逾 20 億日圓營收，2023 年度爆出開業以來最大、約 6.5 億日圓赤字，地方甚至出現「拆除論」。靠賣命名權（大和ハウス）、演唱會與電競、加上札幌市公費補填，2024 年度才勉強翻為小幅純利。你在 ES CON 看到的繁榮，另一頭對應的是市區一座靠補貼撐住、已改名「大和ハウスプレミストドーム」的巨蛋。</p></div>
+          </details>
+
         </div>
       </details>
 
@@ -500,9 +507,12 @@ details[open] summary .chev{transform:rotate(90deg)}
         </div>
       </div>
 
+      <!-- ===== 大點叢集：美瑛・富良野（歷史・風土・視角） ===== -->
       <details>
-        <summary>📖 美瑛・富良野的開拓與農業史<span class="chev">▸</span></summary>
+        <summary>美瑛・富良野：開拓農業史・在地的酒・三種視角<span class="chev">▸</span></summary>
         <div class="det-body">
+
+          <div class="sub-h2">📖 歷史</div>
           <p><b>屯田兵與拼布大地</b></p>
           <p>美瑛的丘陵風景不是自然景觀——它是一百多年農業開拓的結果。1869 年明治政府以「屯田兵」制度開發北海道：從本州招募士兵，分配土地，平時務農、戰時防俄。美瑛一帶在 1894 年開始入殖，屯田兵與移民砍伐原始林、開墾丘陵，導入美式大規模農業，這才形成今天的拼布景觀。</p>
           <p>你在四季彩之丘看到的彩色條紋，其實是作物輪作的結果：小麥（金色）、馬鈴薯（綠色）、甜菜（深綠）、豆類（淺綠）交替種植以維持地力，從空中看就像拼布。觀光花田是後來疊加上去的，但底層邏輯是農業。</p>
@@ -524,14 +534,19 @@ details[open] summary .chev{transform:rotate(90deg)}
               <p><b>北海道乳業</b>：北海道生乳產量佔全日本過半，富良野周邊有多間起司工房。在地的牛乳霜淇淋到處都有，但品質真的比本州好一截——乳脂肪含量高、草飼比例高。</p>
             </div>
           </details>
-        </div>
-      </details>
 
-      <details>
-        <summary>🌾 風土：富良野的酒<span class="chev">▸</span></summary>
-        <div class="det-body">
+          <div class="sub-h2">🌾 風土</div>
           <p><b>富良野葡萄酒</b>：富良野市營的葡萄酒工場（ふらのワイン工場）1972 年開始釀造，是北海道最早的市營酒莊之一。使用在地種植的 Zweigelt（奧地利品種，適應寒冷氣候）與山葡萄交配種。入場免費、免費試飲、工場限定酒款值得一試。不喝酒者可試無添加葡萄汁。展望台可俯瞰十勝岳連峰。</p>
           <p><b>男山酒造（旭川）</b>：位在「札幌→旭川→美瑛」的中繼站上。男山是北海道最古老的酒藏之一，大雪山系萬年雪融水釀造。資料館免費入場，二樓展出歌川國芳等浮世繪原件（酒與藝術結合的罕見展示）。試飲 2026/3 起改投幣制 ¥100 起，可試到大吟釀。9:00–17:00 全年無休。自駕排旭川繞進去順路。</p>
+
+          <div class="sub-h2">🔭 視角</div>
+          <p class="lens-h">〔地景之眼〕這片拼布丘陵不是田園詩，是火山的帳單</p>
+          <p>你看到的波狀起伏農田，是十勝岳數十萬年來反覆火砕流堆積的火山灰與輕石地基，再被冰期「凍融」反覆磨成圓緩坡面。火山灰土排水太快又起伏，留不住水田所需的水——於是這裡種不了米，只能種馬鈴薯、小麥、甜菜、豆類等旱作（畑作），而正是這些作物輪作的色塊，才畫出了「拼布之路」。美瑛之美其實是一張地質與氣候強加的限制清單。<b>現場可看</b>：站在四季彩之丘或パッチワークの路看到的每一條色帶分界，就是「這裡不能種稻」的可視化證據。</p>
+          <p class="lens-h">〔影像之眼〕一個攝影家如何「發明」了美瑛</p>
+          <p>1971 年攝影家前田真三在歸途偶遇美瑛丘陵，此後反覆造訪拍攝（代表作《麦秋鮮列》1977）；1987 年他把廢校的舊千代田小學改建為「拓真館」。在那之前，這片丘陵只是普通旱作農地——是他的攝影集、明信片與企業 CM／廣告把它輸出成全國認得的「美瑛」風景符號，農地才變成觀光地。<b>現場可看</b>：在拓真館看完原作走出來、對照眼前同一片丘陵——你會發現自己是在「核對」一張早被決定好的構圖，而非第一次發現它。</p>
+          <p class="lens-h">〔越界之眼〕一棵被主人親手放倒的樹，標出了風景的產權</p>
+          <p>美瑛的名木幾乎都長在私有耕地裡。「哲學の木」2016 年 2 月由地主農家親手伐倒——表面理由是樹齡老化，真正壓垮它的是觀光客：無視禁入看板踩進田裡、留下垃圾，而鞋底車胎帶進的病菌可能讓整片作物全滅。這片「風景」其實是別人正在耕作的生財工具，不是公共景點。<b>現場可看</b>：看「ケンとメリーの木」「セブンスターの木」時請守住一條線——腳停在柏油路面，鏡頭可以越界、人不行；你眼前缺了的那棵哲學之木，就是越界的代價。</p>
+
         </div>
       </details>
 
@@ -566,6 +581,8 @@ details[open] summary .chev{transform:rotate(90deg)}
           <div class="alt-item"><span class="fi-name"><a href="https://www.google.com/maps/search/?api=1&query=%E6%8B%93%E7%9C%9F%E9%A4%A8+%E7%BE%8E%E7%91%9B">拓真館</a></span> <span class="pill p-add">美術</span><span class="fi-desc">前田真三攝影館、室內、免費、旺季 7–9 月無休。熱天或雨天替代青池。</span></div>
           <div class="alt-item"><span class="fi-name"><a href="https://www.google.com/maps/search/?api=1&query=%E5%BE%8C%E8%97%A4%E7%B4%94%E7%94%B7%E7%BE%8E%E8%A1%93%E9%A4%A8">後藤純男美術館</a></span> <span class="pill p-add">美術</span><span class="fi-desc">大人 ¥1,210、10:00–17:00。日本畫＋眺十勝岳餐廳。</span></div>
           <div class="alt-item"><span class="fi-name"><a href="https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E6%A0%84%E3%81%AE%E4%B8%98%E5%B1%95%E6%9C%9B%E5%85%AC%E5%9C%92">新榮之丘展望公園</a></span> <span class="pill p-add">免費</span><span class="fi-desc">美瑛→富良野軸線上免費展望停車點，37 台。</span></div>
+          <div class="alt-item"><span class="fi-name"><a href="https://www.google.com/maps/search/?api=1&query=%E3%83%95%E3%82%A1%E3%83%BC%E3%83%A0%E3%82%BA%E5%8D%83%E4%BB%A3%E7%94%B0">ファームズ千代田／見晴らし台</a></span> <span class="pill p-add">發現</span><span class="fi-desc">〔在地冷門・酒×農橋接〕主動發現：美瑛和牛吃「酒粕」飼料、娟姍牛現擠 farm-to-table，旁有免費ふれあい牧場＋冷門的千代田之丘展望台（眺十勝連峰、避青池人潮）。<b>取代青池</b>：把拍照站換成農×酒×在地食的實在停點。牧場 9:00–17:00 免費、餐廳平日 11:00–16:00（8/14 五營業，0166-92-1718 可再確認）。2026-06 查證。</span></div>
+          <div class="alt-item"><span class="fi-name"><a href="https://www.google.com/maps/search/?api=1&query=%E5%A4%9A%E7%94%B0%E3%83%AF%E3%82%A4%E3%83%8A%E3%83%AA%E3%83%BC">多田ワイナリー（上富良野）</a></span> <span class="pill p-add">發現</span><span class="fi-desc">〔酒×歷史橋接〕主動發現：同地耕作 120 年、北海道第 33 號酒莊，野生酵母自然派葡萄酒＋自家紅玉氣泡酒——比富良野ワイン工場更職人，深化酒線用。<b>注意</b>：8/14 是平日（非假日），直賣所平日採電話預約制，務必先電 0167-45-5935（待訂）。9:00–17:00。2026-06 查證。</span></div>
         </div>
       </details>
     </div>
@@ -632,9 +649,12 @@ details[open] summary .chev{transform:rotate(90deg)}
 
       <div class="callout c-tip"><b>訂房小撇步：</b>選「湖側＋部屋食會席」可在房內邊用餐邊看花火。想更近可搭「花火鑑賞船」（20:35 出航約 40 分，洞爺湖汽船 0142-75-2137）。湖畔卡位約 20:30 前到。</div>
 
+      <!-- ===== 大點叢集：洞爺湖（歷史・視角） ===== -->
       <details>
-        <summary>📖 洞爺湖的火山與地質<span class="chev">▸</span></summary>
+        <summary>洞爺湖：火山與地質・兩種視角<span class="chev">▸</span></summary>
         <div class="det-body">
+
+          <div class="sub-h2">📖 歷史</div>
           <p><b>破火山口湖</b></p>
           <p>洞爺湖形成於約 11 萬年前的一次巨大火山噴發——噴出物覆蓋了整個膽振平野。火山口塌陷後積水成湖，直徑約 11 公里，幾乎是正圓形。湖中央的中島是後來再噴發隆起的。</p>
           <p>洞爺湖的「活」來自旁邊的有珠山。有珠山在過去 100 年噴發了四次（1910、1943–45、1977–78、2000），是全日本噴發頻率最高的活火山之一。2009 年洞爺湖有珠山被認定為 UNESCO 世界地質公園。</p>
@@ -657,6 +677,13 @@ details[open] summary .chev{transform:rotate(90deg)}
           </details>
 
           <p style="margin-top:8px"><b>溫泉</b>：洞爺湖溫泉的泉質是「鈉─氯化物泉」（食鹽泉），保溫效果佳。源泉溫度約 47–60°C，pH 值中性偏弱鹼。火山地熱直接加熱地下水，所以水量穩定。</p>
+
+          <div class="sub-h2">🔭 視角</div>
+          <p class="lens-h">〔災害即地景〕一座把「下次一定再噴」寫進身分的活火山小鎮</p>
+          <p>有珠山是會「說實話的山」——約每 20–30 年噴一次，且每次噴前都有地震等前兆（1910、1943–45、1977、2000，無一例外可預警），所以 2000 年噴發前周邊住民全數事前避難、零死亡。這座小鎮的存在邏輯不是「躲開火山」，而是「住在一座注定再噴的火山旁，並把它變成身分」：洞爺湖本身就是約 11 萬年前噴發塌陷成的破火山口，溫泉的湯則是 1910 年噴發時湧出的——災害不是這裡的意外，是這裡的地基。<b>現場可看</b>：站環湖步道往南望，渾圓的破火山口湖盆與正後方仍冒煙的有珠山同框，就是「災害造湖、災害造鎮」這句話本身。</p>
+          <p class="lens-h">〔把傷口留在原地〕一座靠「不修復」來記憶的城鎮</p>
+          <p>多數受災城鎮的本能是拆除、抹平；洞爺湖反其道而行——2009 年成為日本第一座世界地質公園，主張不是「我們戰勝了火山」，而是「我們與變動的大地共生」。最尖銳的證據是金比羅火口災害遺構：2000 年噴發時熱泥流把國道橋沖斷、其中一段被推了 87 公尺，直接撞進下游的櫻丘團地；不少住民曾懇求「不要公開我們被毀的家」，但城鎮選擇把團地、町營溫泉連同泥流原樣封存、闢成步道——把私人的災難留成公共的教材。<b>現場可看</b>：走金比羅遺構步道，看那棟被泥流淹到一樓、外牆有巨大破口的公營住宅——那道破口不是地震震的，是被沖斷的國道橋整段撞上去砸出來的。</p>
+
         </div>
       </details>
 
@@ -688,6 +715,7 @@ details[open] summary .chev{transform:rotate(90deg)}
           <div class="alt-item"><span class="fi-name"><a href="https://www.google.com/maps/search/?api=1&query=%E6%9C%89%E7%8F%A0%E5%B1%B1%E3%83%AD%E3%83%BC%E3%83%97%E3%82%A6%E3%82%A7%E3%82%A4">有珠山纜車・昭和新山</a></span> <span class="pill p-add">可加</span><span class="fi-desc">往復 ¥1,800，約 8:15–17:45。火山地景，UNESCO 世界地質公園。</span></div>
           <div class="alt-item"><span class="fi-name"><a href="https://www.google.com/maps/search/?api=1&query=%E6%B4%9E%E7%88%BA%E6%B9%96%E7%81%AB%E5%B1%B1%E7%A7%91%E5%AD%A6%E9%A4%A8">火山科學館</a></span> <span class="pill p-add">雨天佳</span><span class="fi-desc">1977／2000 噴火受災實物與火山機制展示，雨天備案。</span></div>
           <div class="alt-item"><span class="fi-name"><a href="https://www.google.com/maps/search/?api=1&query=%E3%82%B5%E3%83%83%E3%83%9D%E3%83%AD%E3%83%93%E3%83%BC%E3%83%AB%E5%8D%9A%E7%89%A9%E9%A4%A8">札幌啤酒博物館</a></span> <span class="pill p-add">酒・歷史</span><span class="fi-desc">上午可補的酒主題點。2026/7/1 翻新重開、改收費制，先查官網新票價。</span></div>
+          <div class="alt-item"><span class="fi-name"><a href="https://www.google.com/maps/search/?api=1&query=%E9%87%91%E6%AF%94%E7%BE%85%E7%81%AB%E5%8F%A3%E7%81%BD%E5%AE%B3%E9%81%BA%E6%A7%8B">金比羅火口災害遺構散策路</a></span> <span class="pill p-add">發現</span><span class="fi-desc">〔歷史→火山災害史・在地冷門〕主動發現：2000 年有珠山噴發的「市區內」遺構——被泥流摧毀的桜ヶ丘團地、町營浴場、斷橋，原樣保存（與上方火山科學館同一入口）。<b>填 8/16 出發前晨間</b>：就在溫泉街後方、湖畔旅館可步行，免費，短環約 30 分。夏季約 8:00–18:00。出發前一週電 0142-75-2446 確認 2026 開放日。2026-06 查證。</span></div>
         </div>
       </details>
     </div>
@@ -746,9 +774,12 @@ details[open] summary .chev{transform:rotate(90deg)}
         </div>
       </div>
 
+      <!-- ===== 大點叢集：函館 元町・港（歷史・風土・視角） ===== -->
       <details>
-        <summary>📖 函館開港史：日本最早面向世界的窗口<span class="chev">▸</span></summary>
+        <summary>函館 元町・港：開港史・昆布與海鮮・三種視角<span class="chev">▸</span></summary>
         <div class="det-body">
+
+          <div class="sub-h2">📖 歷史</div>
           <p><b>從鎖國到開港</b></p>
           <p>1853 年，美國東印度艦隊司令乘黑船來航，要求日本開國通商。1854 年《日美和親條約》（神奈川條約）簽訂，指定下田和箱館（函館舊名）為最早對外開放的兩個港口——函館是其中之一，比橫濱開港還早五年。</p>
           <p>為什麼選函館？因為函館港天然水深、三面環山擋風，是北太平洋捕鯨船最理想的補給港。美國捕鯨業在 19 世紀中葉達到頂峰，鯨油是當時照明與潤滑的主要來源，他們需要一個能加煤加水的中繼站。</p>
@@ -764,17 +795,22 @@ details[open] summary .chev{transform:rotate(90deg)}
           </details>
 
           <p style="margin-top:8px"><b>必看</b>：八幡坂往下看的港灣全景（能同時看到教會屋頂與港口），金森倉庫的紅磚外牆（1909 年第一回改建，渡邊熊四郎設計），東正教會的六連鐘與拜占庭式屋頂。</p>
-        </div>
-      </details>
 
-      <details>
-        <summary>🌾 風土：函館的昆布與海鮮<span class="chev">▸</span></summary>
-        <div class="det-body">
+          <div class="sub-h2">🌾 風土</div>
           <p><b>真昆布與京都料理的關係</b></p>
           <p>函館周邊海域產的「真昆布」（まこんぶ）是日本料理高湯（だし）的最高級素材，尤其被京都料亭視為不可替代。這背後是一條跨越日本的貿易路線：江戶時代，北海道的昆布、鰊、海產乾貨由「北前船」（きたまえぶね）沿日本海南下，經由大阪到達京都。北前船是江戶時代最賺錢的商業航路——一趟航行利潤可達千兩（約今日數億日圓）。</p>
           <p>函館朝市的昆布乾貨至今仍是品質指標。がごめ昆布（表面有獨特凹凸紋路）是函館限定種，黏性極強，近年被發現富含褐藻醣膠（フコイダン），成為健康食品熱門素材。</p>
           <p><b>函館的烏賊</b>：函館曾是日本最大的烏賊捕獲港，高峰期年產數萬噸。近年因海水溫度上升，烏賊漁獲量銳減，但「活烏賊」仍是函館的招牌體驗。朝市的「駅二市場」可以自己釣活烏賊、現切刺身——透明度是新鮮度的直接證明。</p>
           <p><b>函館鹽拉麵</b>：函館的拉麵傳統是鹽味（しお），而非味噌或醬油。源頭與 1880 年代函館的華人移民有關——他們帶來了清湯麵的做法，用豬骨與雞骨熬清澈高湯，以鹽調味。這是日本最早的拉麵原型之一（比「札幌味噌拉麵」早了半個世紀以上）。あじさい是代表店家。</p>
+
+          <div class="sub-h2">🔭 視角</div>
+          <p class="lens-h">〔地形之眼〕沙頸岬上的沙漏夜景</p>
+          <p>函館山原是約 2,500 萬年前海底火山形成的孤島，後因津輕暖流的分流與河川泥沙在背流側堆積，約 3,000–5,000 年前長出一條連接山與本土的「陸繫沙州（トンボロ）」——長約 3 公里、寬約 600 公尺，函館市街就建在這條沙州上。沒有這條沙頸，就沒有那個著名的中央束腰夜景。<b>現場可看</b>：站在函館山展望台，你看到的「沙漏腰身」不是燈光排列的巧合，而是腳下整座沙州的輪廓被燈火描了出來。</p>
+          <p class="lens-h">〔都市形態之眼〕開港把階級寫進了等高線</p>
+          <p>1859 開港後，海關、棧橋等通關設施全擠在水際的「坂下」低地，最初的外國人居留地也填在海岸低地；而領事館、洋館（舊英國領事館即在基坂中腹）與教會群則沿坡爬上俯瞰港口的元町高台——和橫濱外國人移居山手高台是同一套港町邏輯。開港的貿易秩序，順著坡度把「水邊作業／高地居住」分層刻進了地形。<b>現場可看</b>：走八幡坂、基坂時注意——愈往上洋館與教堂愈密，愈往下愈接近倉庫與碼頭，這條高低差就是開港的剖面圖。</p>
+          <p class="lens-h">〔信仰密度之眼〕一面山坡上的三種基督教</p>
+          <p>元町約 200 公尺範圍內並立著東正教（ハリストス正教会，1860 俄領事館附屬聖堂起家，聖尼古拉在此首傳日本正教）、天主教（カトリック元町教会）、聖公會（聖ヨハネ教会）——三個不同教派如此貼近，在日本極罕見。這是函館作為早期「多列強條約港」的 residue：俄、法、英各自的領事與宣教勢力，把各自的信仰留在了同一道坡上。<b>現場可看</b>：站在坡上一次望見三種屋頂語法——正教的綠頂白牆、天主教的哥德尖塔、聖約翰的十字形屋頂（從函館山頂可辨其十字平面）。</p>
+
         </div>
       </details>
 
@@ -807,6 +843,8 @@ details[open] summary .chev{transform:rotate(90deg)}
           <div class="alt-item"><span class="fi-name"><a href="https://www.google.com/maps/search/?api=1&query=%E5%87%BD%E9%A4%A8%E5%B8%82%E5%8C%97%E6%96%B9%E6%B0%91%E6%97%8F%E8%B3%87%E6%96%99%E9%A4%A8">函館市北方民族資料館</a></span> <span class="pill p-add">歷史</span><span class="fi-desc">舊日本銀行函館支店改裝、9:00–19:00、¥300。愛努與北方民族資料，就在元町區。</span></div>
           <div class="alt-item"><span class="fi-name"><a href="https://www.google.com/maps/search/?api=1&query=%E3%81%AF%E3%81%93%E3%81%A0%E3%81%A6%E3%83%93%E3%83%BC%E3%83%AB">はこだてビール（站前）</a></span> <span class="pill p-add">酒</span><span class="fi-desc">函館站前地啤釀造餐廳，現釀啤酒＋海鮮。</span></div>
           <div class="alt-item"><span class="fi-name"><a href="https://www.google.com/maps/search/?api=1&query=%E6%97%A7%E5%87%BD%E9%A4%A8%E5%8C%BA%E5%85%AC%E4%BC%9A%E5%A0%82">舊函館區公會堂</a></span> <span class="pill p-add">可加</span><span class="fi-desc">若 Day 5 不想回元町，今天可先上。室內歷史建築、可租變裝（2021 修復重開）。</span></div>
+          <div class="alt-item"><span class="fi-name"><a href="https://www.google.com/maps/search/?api=1&query=%E7%AB%8B%E5%BE%85%E5%B2%AC">立待岬＋石川啄木墓</a></span> <span class="pill p-add">發現</span><span class="fi-desc">〔在地冷門・歷史→文學〕主動發現：函館山南端的免費海岬，有石川啄木一族之墓與与謝野晶子歌碑——把歷史接到文學（呼應函館市文學館，但這是真正「ゆかりの地」）。<b>填 8/16 夜景前</b>：市電到谷地頭電停＋徒步約 15–20 分，與函館山同區順走。無休、無料，夏季車道與停車場開放。2026-06 查證。</span></div>
+          <div class="alt-item"><span class="fi-name"><a href="https://www.google.com/maps/search/?api=1&query=%E8%B0%B7%E5%9C%B0%E9%A0%AD%E6%B8%A9%E6%B3%89">谷地頭温泉</a></span> <span class="pill p-add">發現</span><span class="fi-desc">〔在地冷門〕主動發現：函館山麓的在地錢湯（1953 創），茶褐色含鐵泉、星形（五稜郭造型）露天。與立待岬同電停、步行 5 分，可串成一圈。6:00–22:00（末入 21:00）、約 ¥490，公休每月第 2 週二（8/16 日、8/17 一皆營業）。2026-06 查證。</span></div>
         </div>
       </details>
     </div>
@@ -867,9 +905,12 @@ details[open] summary .chev{transform:rotate(90deg)}
 
       <div class="callout c-book"><b>建議先訂：</b>阿佐利本店（明治 34 年壽喜燒老店）週三＋不定休，午餐需事前電話預約、夕食可一休.com 線上訂。1F 精肉店名物可樂餅早上易售罄。</div>
 
+      <!-- ===== 大點叢集：五稜郭（歷史・視角） ===== -->
       <details>
-        <summary>📖 箱館戰爭：武士時代的最後一戰<span class="chev">▸</span></summary>
+        <summary>五稜郭：箱館戰爭・一種視角<span class="chev">▸</span></summary>
         <div class="det-body">
+
+          <div class="sub-h2">📖 歷史</div>
           <p><b>背景：為什麼打到北海道</b></p>
           <p>1868 年，持續 260 年的德川幕府在鳥羽伏見之戰中敗給薩長聯軍（後來的明治新政府），大政奉還、江戶無血開城。大部分幕府勢力投降，但有一群人不認輸。</p>
           <p>榎本武揚（えのもと たけあき），幕府海軍副總裁，率領 8 艘軍艦（包括旗艦「開陽丸」）與約 2,000 名士兵，從品川灣出航北上。他的計畫是：佔領蝦夷地（北海道），建立一個獨立政權，既保全舊幕臣的生路，也替日本守住北方——當時俄國正在蠶食庫頁島（樺太），北海道防務空虛。</p>
@@ -903,6 +944,11 @@ details[open] summary .chev{transform:rotate(90deg)}
           </details>
 
           <p style="margin-top:8px"><b>必看</b>：五稜郭塔上俯瞰星形全貌（設計者武田斐三郎參考法國 Vauban 式稜堡設計，是日本唯一完整的西洋式城郭）；塔內常設展的箱館戰爭模型與人物介紹；奉行所復原內部的大廣間與「蝦夷共和國」相關史料；一本木關門土方歲三最期之地碑（市電「千代台」站步行 3 分）。</p>
+
+          <div class="sub-h2">🔭 視角</div>
+          <p class="lens-h">〔近代化之眼〕黑船逼出來的歐洲星形，剛建好就過時了</p>
+          <p>1857 動工、約 1864 主體完成、1866 全體竣工，由蘭學者武田斐三郎設計——這是日本第一座正式的稜堡式（星形）要塞。為什麼此刻照抄歐洲幾何？因為佩里黑船帶來的開國威脅，逼幕府用「無死角十字砲火」的稜堡來守蝦夷地。諷刺的是，星形稜堡在歐洲此時已是過時樣式；更致命的是它違反「不可建高樓」原則蓋了太鼓櫓，成了 1869 年新政府艦砲（射程及於 3.5 公里外）的瞄準點，而郭內舊式火砲卻打不到港口——設計甫成即敗於十年內躍進的火砲技術，1869 年陷落。<b>現場可看</b>：登五稜郭塔俯瞰那個對稱的五角星——它是為對抗黑船而生、卻轉眼被黑船時代淘汰的「來不及的近代化」；星角的幾何愈完美，愈顯出它與新式艦砲之間的時代落差。</p>
+
         </div>
       </details>
 
@@ -1007,14 +1053,26 @@ details[open] summary .chev{transform:rotate(90deg)}
         </div>
       </div>
 
+      <!-- ===== 大點叢集：札幌・開拓使遺產（歷史・視角） ===== -->
       <details>
-        <summary>📖 札幌的開拓史遺產<span class="chev">▸</span></summary>
+        <summary>札幌・開拓使的遺產：赤煉瓦與 Factory・三種視角<span class="chev">▸</span></summary>
         <div class="det-body">
+
+          <div class="sub-h2">📖 歷史</div>
           <p><b>赤煉瓦廳舍（北海道廳舊本廳舍）</b></p>
           <p>1888 年竣工，美式新巴洛克樣式，紅磚外牆的原料來自當時的白石煉瓦工場與幌內炭礦的煤炭。設計上仿效麻薩諸塞州州議會大廈，反映了明治政府「以美國為師」開發北海道的方針——畢竟北海道的緯度、氣候、開拓課題都比較接近美國北部而非日本本州。</p>
           <p>2019 年起進行約 6 年大規模修復，2025 年 7 月重新開放。新增八角塔展望（¥1,200 需預約，可 360 度俯瞰札幌）與 ISHIYA「白色戀人 Akarenga sweets labo」。常設展免費區（8:45–21:00、¥300）涵蓋北海道開拓史。札幌站南口步行 8 分。</p>
           <p><b>札幌市資料館</b>：大正 15 年（1926）建成的舊控訴院（上訴法院），全日本僅存兩座同型建築之一（另一座在名古屋）。內部有再現法庭、札幌開拓資料與美術展示。免費、9:00–19:00、大通公園西端。</p>
           <p><b>札幌 Factory</b>：開拓使麥酒釀造所的舊址——就是札幌啤酒的發源地（Day 1 啤酒園是後來的生產設施）。磚造建築群改裝成購物商場，中庭挑高玻璃天棚，餐飲至 22:00。想感受啤酒發源史的空間感，這裡比啤酒園博物館更「原點」。</p>
+
+          <div class="sub-h2">🔭 視角</div>
+          <p class="lens-h">〔閱讀街道之眼〕碁盤格與大通，是寫在地面上的開拓使施政圖</p>
+          <p>札幌的棋盤格不是單純的美學選擇——開拓判官島義勇在豐平川扇狀地上劃格規畫，而貫穿東西、寬 105 公尺的大通公園原本是「火防線」（防火帶），用來保護北側官廳街免於火災；它同時是一條社會分區線——大通以北是官廳街、以南是商業與住宅。<b>現場可看</b>：站在大通公園中軸，往北望舊道廳一帶、往南望商業區，你正站在這條一百五十年前劃下的官民分界線上。</p>
+          <p class="lens-h">〔追蹤一顆星之眼〕牆上的紅色五稜星，是辨認「開拓使遺產」的暗號</p>
+          <p>開拓使的商標是象徵北極星的「五稜星」，凡與開拓使相關的建築都帶著這顆紅星。少了這副眼鏡，你會把赤煉瓦廳舍、時計台、サッポロビール博物館各自當成獨立景點；戴上它，這顆星就把它們串成同一套開拓工程的家族。更尖銳的對照是「存續」——開拓使做了無數事業，活到 21 世紀的只剩兩個：サッポロビール 與 北海道大學（札幌農学校後身）。<b>現場可看</b>：抬頭去找牆面那顆紅色五稜星，每找到一顆，就辨認出一處開拓使的指紋。</p>
+          <p class="lens-h">〔一塊地的轉生之眼〕同一塊地，113 年都在釀啤酒</p>
+          <p>啤酒是開拓使的核心官營事業（北海道有大麥、啤酒花與釀造所需的天然冰）→ 1876 年開拓使麦酒醸造所開業，由留德的中川清兵衛主釀，是日本第一座由日本人之手、具正式設備的啤酒廠 → 1882 開拓使廢止後民營化為「札幌麦酒」→ 工廠運作到 1993 年遷往恵庭，原地改建為札幌 Factory，刻意保存紅磚與煙囪。所以這不是普通商場，而是「日本啤酒發祥地」連續 113 年釀造史的同一塊土地。<b>現場可看</b>：在園區的「開拓使麦酒醸造所／BREWERY1876」喝一杯復刻的開拓使麦酒，腳下就是這條從官營到民營、貫穿札幌近代化的產業地層。</p>
+
         </div>
       </details>
 
@@ -1047,6 +1105,8 @@ details[open] summary .chev{transform:rotate(90deg)}
           <div class="alt-item"><span class="fi-name"><a href="https://www.google.com/maps/search/?api=1&query=%E3%82%B5%E3%83%83%E3%83%9D%E3%83%AD%E3%83%95%E3%82%A1%E3%82%AF%E3%83%88%E3%83%AA%E3%83%BC">札幌 Factory</a></span> <span class="pill p-add">酒・歷史</span><span class="fi-desc">開拓使麥酒釀造所舊址，啤酒的「原點」。餐飲至 22:00。</span></div>
           <div class="alt-item"><span class="fi-name"><a href="https://www.google.com/maps/search/?api=1&query=%E6%9C%AD%E5%B9%8C%E5%B8%82%E8%B3%87%E6%96%99%E9%A4%A8">札幌市資料館</a></span> <span class="pill p-add">免費</span><span class="fi-desc">大正 15 年舊控訴院建築、含再現法庭。免費、9:00–19:00、大通西端。</span></div>
           <div class="alt-item"><span class="fi-name"><a href="https://www.google.com/maps/search/?api=1&query=%E5%8C%97%E6%B5%B7%E9%81%93%E5%A4%A7%E5%AD%A6+%E6%9C%AD%E5%B9%8C%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%91%E3%82%B9">北海道大學 校園</a></span> <span class="pill p-add">免費</span><span class="fi-desc">傍晚散步舒服，補札幌開拓史／農學脈絡。博物館免費。</span></div>
+          <div class="alt-item"><span class="fi-name"><a href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E9%80%9A%E5%85%AC%E5%9C%92">さっぽろ大通ビアガーデン</a></span> <span class="pill p-add">發現</span><span class="fi-desc">〔限定日期・酒×在地食〕主動發現：大通公園露天啤酒花園，Sapporo／世界のビール／札幌德國村等分區。8/18（二）正是會期<b>最後一夜（千秋楽）</b>，「只有這天」的限定時刻。<b>取代 8/18 薄野晚餐</b>。會期 7/23–8/18、每日 12:00–21:00、入場免費（餐飲計費）、雨天決行。2026-06 查證。</span></div>
+          <div class="alt-item"><span class="fi-name"><a href="https://www.google.com/maps/search/?api=1&query=%E3%83%8B%E3%83%83%E3%82%AB%E3%83%90%E3%83%BC%E6%9C%AD%E5%B9%8C">THE NIKKA BAR（薄野）</a></span> <span class="pill p-add">發現</span><span class="fi-desc">〔酒→威士忌風土〕主動發現：日本唯一冠「THE」的 Nikka 旗艦酒吧，就在 Nikka 的故鄉。招牌「余市・宮城峡・竹鶴」飲み比べ，把酒興趣推進到北海道單一麥芽。<b>接啤酒花園後續攤</b>：週二 18:00–翌 1:00（年中無休）。桌費約 ¥1,000＋瓶費，套組價現場確認（011-518-3344）。2026-06 查證。</span></div>
         </div>
       </details>
     </div>
@@ -1063,8 +1123,10 @@ details[open] summary .chev{transform:rotate(90deg)}
     </div>
     <div class="day-body">
       <p class="line"><b>任務：</b>最後一天只做收尾：大丸 B1 補北海道甜點，機場補冷藏與缺貨品。不要再排遠景點。</p>
-      <p class="line"><b>交通：</b>快速 Airport 札幌→新千歲約 37 分。（回程示範班機） 14:40 起飛，建議最晚 11:30–11:40 進國際線（LCC＋盂蘭盆節）。本行程（8 月）退稅仍是現行「購買時免稅」制，持護照辦理即可。</p>
+      <p class="line"><b>交通：</b>快速 Airport 札幌→新千歲約 37 分。回程班機 14:40 起飛，建議最晚 11:30–11:40 進國際線（LCC＋盂蘭盆節）。本行程（8 月）退稅仍是現行「購買時免稅」制，持護照辦理即可。</p>
       <div class="verdict"><b>景點判斷：</b>大丸＋新千歲就是終局。白色戀人公園、時計台這類除非順路，否則不值得壓縮機場緩衝。</div>
+
+      <div class="echo" style="margin-top:0;margin-bottom:16px"><b>旅程的收束：</b>七天走下來，北海道其實由兩股力量寫成。一股是<b>火山</b>——美瑛的拼布丘陵是火山灰鋪的帳單、洞爺是一次大噴發塌出來的破火山口、連函館夜景的沙漏腰身都是泥沙堆出的沙頸岬：地，是火山寫的。另一股是<b>造鎮的意志</b>——開拓使在豐平川扇狀地上劃出棋盤札幌、開港把階級沿元町坡度分層、黑船逼出一座剛建好就過時的五稜星，一路到一支球隊在原生林裡蓋出 ES CON 球場鎮。從洞爺「與火山共生」到 ES CON「企業造城」，其實是同一個提問：人要怎麼在一塊不馴的大地上安頓自己。你這七天，沿著這個提問走了一遍。</div>
 
       <div class="block-label"><span class="ic">🗺️</span>主動線</div>
       <div class="timeline">
@@ -1090,7 +1152,7 @@ details[open] summary .chev{transform:rotate(90deg)}
         </div>
         <div class="event">
           <div class="event-time">14:40</div>
-          <div class="event-title"><a href="https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E5%8D%83%E6%AD%B3%E7%A9%BA%E6%B8%AF+%E5%9B%BD%E9%9A%9B%E7%B7%9A">新千歲・國際線 （回程示範班機）</a> <span class="pill p-must">航班</span></div>
+          <div class="event-title"><a href="https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E5%8D%83%E6%AD%B3%E7%A9%BA%E6%B8%AF+%E5%9B%BD%E9%9A%9B%E7%B7%9A">新千歲・國際線 回程班機</a> <span class="pill p-must">航班</span></div>
           <div class="event-desc">起飛。LCC＋盂蘭盆節，安檢與行李不要壓線。</div>
         </div>
       </div>
