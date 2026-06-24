@@ -9,8 +9,6 @@ const requiredFiles = [
   "template.html",
   "PROMPT.md",
   "README.md",
-  "sample/hokkaido-7day-sample.html",
-  "sample/preview.png",
 ];
 
 const failures = [];
@@ -47,7 +45,7 @@ function checkRequiredFiles() {
 function checkPackage() {
   const pkg = JSON.parse(read("package.json"));
   const scripts = pkg.scripts || {};
-  for (const name of ["check", "build:print", "sample:print"]) {
+  for (const name of ["check", "build:print"]) {
     if (!scripts[name]) fail(`package.json missing npm script: ${name}`);
   }
 }
@@ -172,17 +170,6 @@ function checkHtmlFile(file) {
     }
   }
 
-  if (file.startsWith("sample/")) {
-    if (markup.includes("https://example.com/")) {
-      fail(`${file}: sample output still contains example.com placeholder links.`);
-    }
-    if (markup.includes('class="cover-chips"')) {
-      fail(`${file}: sample must not surface interest chips — interests are baked in, shown as content not labels.`);
-    }
-    if (!markup.includes('class="lens-h"')) {
-      fail(`${file}: sample should demonstrate the place-lens (視角) model — missing lens-h.`);
-    }
-  }
 }
 
 function checkLocalLinks(file) {
@@ -213,7 +200,7 @@ function checkLocalLinks(file) {
 
 function checkReadme() {
   const readme = read("README.md");
-  for (const term of ["發散", "總結", "確認", "查證糾錯", "npm run check", "npm run sample:print"]) {
+  for (const term of ["發散", "總結", "確認", "查證糾錯", "npm run check"]) {
     if (!readme.includes(term)) fail(`README.md missing expected project guidance: ${term}`);
   }
 }
@@ -227,8 +214,7 @@ if (failures.length === 0) {
   checkResearch();
   checkReadme();
   checkHtmlFile("template.html");
-  checkHtmlFile("sample/hokkaido-7day-sample.html");
-  for (const file of ["README.md", "template.html", "sample/hokkaido-7day-sample.html"]) {
+  for (const file of ["README.md", "template.html"]) {
     checkLocalLinks(file);
   }
 }

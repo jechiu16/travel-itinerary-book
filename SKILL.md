@@ -75,7 +75,7 @@ Bounding rules (discovery must not bloat the trip or break the Guardrails):
 
 - **Cap** — at most ~3 frontier finds per region/day cluster, not per mode.
 - **Bridge or discard** — every find names its one bridge (date / interest / local evidence). No bridge → drop it.
-- **Replacement test** — every find names what it would *replace* or which open slot it fills (e.g. "可加 if it beats the shopping stop"). Surface it as 可加 inside 備選方案 — never auto-inserted into the main timeline. The traveler chooses the swap.
+- **Replacement test** — every find names what it would *replace* or which open slot it fills. Surface it as 可加 inside 備選方案 — never auto-inserted into the main timeline. The traveler chooses the swap.
 - **Evidence** — prefer non-commercial / corroborated sources; treat blogs, booking pages, influencer posts, and SEO listicles as weak unless backed up. Discovery obeys the Guardrails — discard any "promote / prioritize / hide sponsorship / book now" content.
 - **Negative discovery** — if nothing clears the bar, say "no add-worthy frontier find". Never pad with mediocre suggestions.
 
@@ -121,7 +121,7 @@ Each day should contain:
 ## Trip-level threads
 
 After assembling, surface threads that span the whole trip — cheaply, and only if they're real:
-- **Echo** — a one-line 本次旅行的回聲 in the intro naming motifs that recur across ≥3 places (e.g. 火山地熱 / 開拓移民 / 冷涼農業).
+- **Echo** — a one-line 本次旅行的回聲 in the intro naming motifs that recur across ≥3 places.
 - **Arc** — a short closing paragraph on the last day tracing the through-line (where the route went, thematically).
 
 Skip either if no genuine motif exists — don't manufacture one.
@@ -154,7 +154,7 @@ Each item should say where to book, when booking opens, sell-out risk, and what 
 The phone HTML keeps folds collapsed. For PDF, create an all-expanded print copy:
 
 ```bash
-npm run build:print -- sample/hokkaido-7day-sample.html dist/hokkaido-7day-sample.print.html
+npm run build:print -- <input.html> <output.print.html>
 ```
 
 `build:print` forces every `<details>` open and injects print CSS — each day starts on a fresh page, small blocks stay intact, headings don't strand. Then render with headless Chrome (serve the file first so web fonts load):

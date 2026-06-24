@@ -30,15 +30,15 @@ For every venue, restaurant, and transport leg in its region:
 - **Opening hours & regular closed day** — and whether the specific travel date hits that closed day (check day-of-week!)
 - **Current price** (admission, ropeway, parking) — prices drift; old itineraries are often stale
 - **Open/closed status & relocation** — buildings reopen after renovation, shops move, lines suspend for annual maintenance
-- **Seasonal availability** — flowers, fruit, menus, events are date-bound (e.g. lavender is July, not August)
+- **Seasonal availability** — flowers, fruit, menus, events are date-bound
 - **Reservation reality** — does it need booking, how far ahead, walk-in only, cash only
 - **Official site URL** for a `gov`-style citation link
 - **Transport** — reserved-seat-only trains, ticket release timing, last bus / last shuttle, drive times
-- **Time-bound events** — if a game / festival / fireworks / seasonal bloom is wanted, confirm it actually falls in the travel window (e.g. is there a *home* game that date?), its start time, venue access from base city, and ticket release / sell-out risk
+- **Time-bound events** — if a game / festival / fireworks / seasonal bloom is wanted, confirm it actually falls in the travel window, its start time, venue access from base city, and ticket release / sell-out risk
 
 ## What each agent should SUPPLEMENT
 
-New candidates that fit the traveler's stated interests, with the same verified details. Tie each to an interest (history / sake / art / produce / local food) so the assembler can justify including it. Mark obvious time-sink tourist traps as 可砍.
+New candidates that fit the traveler's stated interests, with the same verified details. Tie each to a stated interest so the assembler can justify including it. Mark obvious time-sink tourist traps as 可砍.
 
 ## Proactive discovery (frontier candidates)
 
@@ -97,8 +97,8 @@ Hours, prices, closures, transport rules, ticket-release timing, and seasonal ev
 
 When nothing is booked, the report's most useful output is *what to book first*. Rank by lock-in / sell-out risk:
 
-1. Reserved-seat express trains — release date (often 1 month prior, 10:00)
-2. Peak-season hotels (Obon/holidays) + self-drive rental cars
+1. Reserved-seat express trains — release date varies by operator
+2. Peak-season hotels (local holidays / high season) + self-drive rental cars
 3. Event tickets (games, fireworks seats) — when release opens
 4. Popular restaurants needing reservation
 

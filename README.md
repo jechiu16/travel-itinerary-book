@@ -11,10 +11,6 @@
   <img src="https://img.shields.io/badge/手機-優先-1C305C" alt="Mobile first">
 </p>
 
-<p align="center">
-  <a href="sample/hokkaido-7day-sample.html"><img src="sample/preview.png" width="420" alt="樣品行程預覽"></a><br>
-  <sub>↑ 樣品輸出（航班與住宿已去識別化）— <a href="sample/hokkaido-7day-sample.html">開啟完整樣品 HTML</a></sub>
-</p>
 
 ---
 
@@ -59,7 +55,7 @@ repo 內含 `.claude-plugin/plugin.json`，所以 clone 進技能目錄後會被
 /travel-itinerary-book
 ```
 
-…或直接說「幫我規劃 5 天京都行，我喜歡歷史和日本酒」／「把這些行程檔案整合起來，確認最新資訊」。
+…或直接說「幫我規劃 5 天行程，我喜歡歷史和在地食物」／「把這些行程檔案整合起來，確認最新資訊」。
 
 ## 🌐 在其他 LLM 上使用（ChatGPT／Gemini…）
 
@@ -73,7 +69,6 @@ repo 內含 `.claude-plugin/plugin.json`，所以 clone 進技能目錄後會被
 | [`research-and-factcheck.md`](research-and-factcheck.md) | 研究回報格式；查證欄位、季節/週幾風險、訂位優先順序 |
 | [`template.html`](template.html) | 單檔 HTML 模板 + 示範日；提供時間軸、摺疊區、住宿卡、採買區 |
 | [`PROMPT.md`](PROMPT.md) | harness 無關的可攜指令；貼進任何瀏覽型 LLM 即可跑 |
-| [`sample/`](sample/) | 已渲染的去識別化範例輸出 + 預覽圖 |
 | [`scripts/`](scripts/) | repo 檢查與 print-copy 生成腳本 |
 | [`.claude-plugin/plugin.json`](.claude-plugin/plugin.json) | plugin 中繼資料；讓 repo 能被當 Claude plugin 版本化安裝 |
 
@@ -83,11 +78,10 @@ repo 內含 `.claude-plugin/plugin.json`，所以 clone 進技能目錄後會被
 
 ```bash
 npm run check
-npm run sample:print
 ```
 
 - `npm run check`：檢查技能 frontmatter、必要檔案、HTML 基本結構與本地連結。
-- `npm run sample:print`：把範例 HTML 轉成 `dist/` 裡的全展開列印版，方便再用瀏覽器或 headless Chrome 輸出 PDF。
+- `npm run build:print -- <file> <out>`：把任意行程 HTML 轉成全展開列印版，方便再用 headless Chrome 輸出 PDF。
 
 技能流程本身採用「發散 → 總結 → 確認 → 查證糾錯 → 組裝 → 自我檢查」循環；模型可以自由發揮內容，但在路線骨架、未訂項目、時間性活動與事實查證上保留明確護欄。
 

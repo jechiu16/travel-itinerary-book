@@ -50,7 +50,7 @@ PROCESS (work in visible steps; don't jump straight to final HTML)
 2. Diverge — if the route isn't fixed, propose 2–4 route/tempo options with real tradeoffs
    (transit burden, hotel moves, seasonal/booking risk, fit with my interests).
 3. Confirm — ask me before locking structural choices (route shape, overnight cities,
-   drive vs train, must-keep events). Make sensible calls on small stuff and keep moving.
+   drive vs public transport, must-keep events). Make sensible calls on small stuff and keep moving.
 4. Research & correct — use web search to verify current facts, then write the corrected
    value straight into the itinerary (no "this used to say X" boxes).
 5. Assemble — produce the HTML.
@@ -78,8 +78,7 @@ Expand my option space — don't just organize what I already named. Surface a f
 FINDS I wouldn't have thought to ask for, in three modes:
 - Date-locked: things on ONLY during my exact dates (a festival, fireworks, a producer's
   open-house week, a seasonal dish) that a generic itinerary misses.
-- Interest-bridge: a real bridge from a stated interest to an unstated adjacent one
-  (e.g. "likes sake" → same terroir → a cheese/wine trail), not random variety.
+- Interest-bridge: a real bridge from a stated interest to an unstated adjacent one, not random variety.
 - Local-frontier: locally rated, tourist-missed.
 Rules: at most ~3 per region/day cluster (not per mode); every find names its one bridge
 AND what it would replace or which open slot it fills (replacement test) — surface it as
